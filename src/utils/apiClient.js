@@ -1,5 +1,4 @@
-const getUrl = "https://reqres.in/api/users?page=2";
-const postUrl = "https://reqres.in/api/users";
+// const getUrl = "https://reqres.in/api/users?page=2";
 
 const getData = async(getUrl) => {
   const response = await fetch(getUrl, {
@@ -9,13 +8,7 @@ const getData = async(getUrl) => {
       }
   });
   const data = await response.json();
-  const users = data.data;
-  return users;
-};
-
-let user = {
-  name: "Juan Diego",
-  job: "Pro Gamer",
+  return data;
 };
 
 const postData = async(postUrl, datos) => {
@@ -31,8 +24,8 @@ const postData = async(postUrl, datos) => {
 };
 
 const apiClient = {
-  get: getData(getUrl),
-  post: postData(postUrl, user),
+  get: getData,
+  post: postData,
 };
 
 export default apiClient;
