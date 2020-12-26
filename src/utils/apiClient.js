@@ -1,5 +1,3 @@
-// const getUrl = "https://reqres.in/api/users?page=2";
-
 const getData = async(getUrl) => {
   const response = await fetch(getUrl, {
       method: 'GET',

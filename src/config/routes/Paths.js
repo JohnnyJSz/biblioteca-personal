@@ -8,5 +8,3 @@ export const CATEGORIES = '/categories';
 export const CATEGORIES_ID = '/categories/:id';
 export const CATEGORIES_ID_DELETE = '/categories/:id/delete';
 export const CATEGORIES_ID_UPDATE = '/categories/:id/update';
-
-
