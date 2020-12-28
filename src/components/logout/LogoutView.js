@@ -9,7 +9,7 @@ const LogoutView = () => {
 
   return (
     <div>
-      <h3>Esto es la LOGOUT</h3>
+      <h3>Esto es el componente LOGOUT</h3>
       <button onClick={handleClick}>Cerrar Sesión</button>
     </div>
   );

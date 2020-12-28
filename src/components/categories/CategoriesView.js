@@ -3,7 +3,7 @@ import React from 'react';
 const CategoriesView = () => {
     return (
         <div>
-            <h3>Esta es la CATEGORIES</h3>
+            <h3>Esta es el componente CATEGORIES</h3>
         </div>
     );
 };

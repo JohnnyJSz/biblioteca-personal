@@ -1,11 +1,14 @@
 import { createContext, useCallback, useMemo, useState } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 export const AuthContext = createContext();
+
 const MY_AUTH_APP = "MY_AUTH_APP";
 
 const AuthContextProvider = ({ children }) => {
-  const [isAuth, setIsAuth] = useState(window.localStorage.getItem(MY_AUTH_APP));
+  const [isAuth, setIsAuth] = useState(
+    window.localStorage.getItem(MY_AUTH_APP)
+  );
 
   const login = useCallback(() => {
     window.localStorage.setItem(MY_AUTH_APP, true);
@@ -30,7 +33,7 @@ const AuthContextProvider = ({ children }) => {
 };
 
 AuthContextProvider.propTypes = {
-    children: PropTypes.object,
+  children: PropTypes.node.isRequired,
 };
 
 export default AuthContextProvider;

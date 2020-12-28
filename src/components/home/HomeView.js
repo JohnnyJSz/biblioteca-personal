@@ -1,29 +1,40 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-const HomeView = ({handleSubmit, handleInputChange, magicWord, loginMessage}) => {
+import {
+  HomeMainContainer as StyledHomeMainContainer,
+  Form as StyledForm,
+  Button as StyledButton,
+  Input as StyledInput
+} from "./styledComponents";
 
+const HomeView = ({
+  handleSubmit,
+  handleInputChange,
+  magicWord,
+  loginMessage,
+}) => {
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input
+    <StyledHomeMainContainer>
+      <StyledForm onSubmit={handleSubmit}>
+        <StyledInput
           placeholder='Palabra mágica'
           type='text'
           value={magicWord}
           onChange={handleInputChange}
         />
-        <button type='submit'>Iniciar Sesión</button>
-      </form>
+        <StyledButton type='submit'>Iniciar Sesión</StyledButton>
+      </StyledForm>
       <p>{loginMessage}</p>
-    </>
+    </StyledHomeMainContainer>
   );
 };
 
 HomeView.propTypes = {
-    handleSubmit: PropTypes.func,
-    handleInputChange: PropTypes.func,
-    magicWord: PropTypes.string,
-    loginMessage: PropTypes.string,
+  handleSubmit: PropTypes.func,
+  handleInputChange: PropTypes.func,
+  magicWord: PropTypes.string,
+  loginMessage: PropTypes.string,
 };
 
 export default HomeView;
