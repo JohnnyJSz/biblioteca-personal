@@ -1,9 +1,15 @@
+import { API_TOKEN } from "../config/access/backEnd";
+
+const headers = {
+  "Content-Type": "application/json",
+  "Accept": "application/json",
+  "X-AUTH-TOKEN": API_TOKEN,
+};
+
 const getData = async(getUrl) => {
   const response = await fetch(getUrl, {
-      method: 'GET',
-      headers: {
-        "Content-Type": "application/json",
-      }
+    method: "GET",
+    headers: headers,
   });
   const data = await response.json();
   return data;
@@ -12,9 +18,7 @@ const getData = async(getUrl) => {
 const postData = async(postUrl, datos) => {
   const response = await fetch(postUrl, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: headers,
     body: JSON.stringify(datos),
   });
   const result = await response.json();
