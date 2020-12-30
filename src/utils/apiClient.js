@@ -15,11 +15,12 @@ const getData = async(getUrl) => {
   return data;
 };
 
-const postData = async(postUrl, datos) => {
+const postData = async(postUrl, body) => {
   const response = await fetch(postUrl, {
     method: "POST",
     headers: headers,
-    body: JSON.stringify(datos),
+    body: body,
+    // body: JSON.stringify(datos),
   });
   const result = await response.json();
   return result;

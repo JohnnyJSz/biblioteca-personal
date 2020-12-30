@@ -4,7 +4,7 @@ import { Footer as StyledFooter } from './styledComponents';
 const Footer = () => {
   return (
     <StyledFooter>
-      <p>Esto es el footer - (c)</p>
+      <p>Personal library & Librarify  - Latte and Code (c)</p>
     </StyledFooter>
   );
 };
