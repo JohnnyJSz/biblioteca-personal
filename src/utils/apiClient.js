@@ -6,29 +6,29 @@ const headers = {
   "X-AUTH-TOKEN": API_TOKEN,
 };
 
-const getData = async(getUrl) => {
+const get = async(getUrl) => {
   const response = await fetch(getUrl, {
     method: "GET",
     headers: headers,
   });
-  const data = await response.json();
-  return data;
+  const json = await response.json();
+  return json;
 };
 
-const postData = async(postUrl, body) => {
+const post = async(postUrl, body) => {
   const response = await fetch(postUrl, {
     method: "POST",
     headers: headers,
     body: body,
     // body: JSON.stringify(datos),
   });
-  const result = await response.json();
-  return result;
+  const json = await response.json();
+  return json;
 };
 
 const apiClient = {
-  get: getData,
-  post: postData,
+  get,
+  post,
 };
 
 export default apiClient;

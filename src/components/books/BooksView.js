@@ -1,21 +1,21 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import BookItem from './bookItem';
+import BookItem from "./bookItem";
 import PropTypes from "prop-types";
 
-// eslint-disable-next-line no-unused-vars
-const BooksView = ({ datosLibros, callStatus }) => {
-  
-  console.log(datosLibros);
-
-  return (
-    <div>
-      <h1>Libros</h1>
-      {datosLibros.map((libro) => (
-        <BookItem key={libro.id} id={libro.id} titulo={libro.title} cover={libro.image}/>
-      ))}
-    </div>
-  );
+function BooksView({isLoading, data}) {
+  if (isLoading) {
+    return <h2>Cargando...</h2>;
+  } else {
+    return (
+      <div>
+        <h1>Libros</h1>
+        {data.map((libro) => (
+          <BookItem key={libro.id} id={libro.id} title={libro.title} image={libro.image} categories={libro.categories} />
+        ))}
+      </div>
+    );
+  }
 };
 
 BooksView.propTypes = {

@@ -1,7 +1,8 @@
 export const HOME = '/';
 export const LOGOUT = '/logout';
 export const BOOKS = '/books';
-export const BOOKS_ID = '/books/:id';
+export const BOOKS_ID = '/books/:id(\\d+)';
+export const BOOKS_CREATE = '/books/create';
 export const BOOKS_ID_DELETE = '/books/:id/delete';
 export const BOOKS_ID_UPDATE = '/books/:id/update';
 export const CATEGORIES = '/categories';

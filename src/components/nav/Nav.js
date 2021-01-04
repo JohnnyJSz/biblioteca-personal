@@ -3,15 +3,20 @@ import { NavLink } from "react-router-dom";
 
 import { NavContainer as StyledNavContainer, Ul as StyledUl } from "./styledComponents";
 
-import { BOOKS, CATEGORIES, LOGOUT } from "../../config/routes/Paths";
+import { BOOKS, BOOKS_CREATE, CATEGORIES, LOGOUT } from "../../config/routes/Paths";
 
 const Nav = () => {
   return (
     <StyledNavContainer>
       <StyledUl>
         <li>
-          <NavLink activeClassName='active' to={BOOKS}>
+          <NavLink activeClassName='active' to={BOOKS} exact>
             Libros
+          </NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName='active' to={BOOKS_CREATE} exact>
+            Añadir libro
           </NavLink>
         </li>
         <li>
