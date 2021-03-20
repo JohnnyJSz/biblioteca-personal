@@ -1,14 +1,13 @@
-import {useEffect, useState} from 'react';
-import apiClient from '../utils/apiClient';
+import { useEffect, useState } from "react";
+import apiClient from "../utils/apiClient";
 
 export default function useFetch(url, method, body) {
-  
   const [fetchState, setFetchState] = useState({
     isLoading: true,
     isSuccess: false,
     isFailed: false,
     data: null,
-    error: null
+    error: null,
   });
 
   useEffect(
@@ -17,24 +16,43 @@ export default function useFetch(url, method, body) {
         try {
           let result = null;
           switch (method) {
-            case 'GET':
+            case "GET":
               result = await apiClient.get(url);
               break;
-            case 'POST':
+            case "POST":
               result = await apiClient.post(url, body);
               break;
+            case 'DELETE':
+              result = await apiClient.del(url, body);
+              break;
             default:
-              throw new Error('Invalid method');
+              throw new Error("Método invalido");
           }
+          if (result !== "Book not found") {
+            setFetchState({
+              isLoading: false,
+              isSuccess: true,
+              isFailed: false,
+              error: null,
+              data: result,
+            });
+          } else {
+            setFetchState({
+              isLoading: false,
+              isSuccess: true,
+              isFailed: true,
+              error: null,
+              data: result,
+            });
+          }
+        } catch (error) {
           setFetchState({
             isLoading: false,
-            isSuccess: true,
-            isFailed: false,
-            error: null,
-            data: result
+            isSuccess: false,
+            isFailed: true,
+            error,
+            data: null,
           });
-        } catch (error) {
-          setFetchState({isLoading: false, isSuccess: false, isFailed: true, error, data: null});
         }
       }
       fetchData();
@@ -43,58 +61,3 @@ export default function useFetch(url, method, body) {
   );
   return fetchState;
 }
-
-
-// import { useState, useEffect } from "react";
-// import apiClient from "../utils/apiClient";
-
-// export default function useFetch({ url, method, body }) {
-//   const [data, setData] = useState({
-//     isLoading: true,
-//     isSuccess: false,
-//     error: null,
-//     data: null
-//   });
-
-//   useEffect(
-//     function() {
-//     async function dataFetch() {
-//       try {
-//         let result = null;
-//         if (method === "GET") {
-//           result = await apiClient.get(url);
-//         } else if (method === "POST") {
-//           result = await apiClient.get(url);
-//         } else {
-//           throw new Error("Método inválido");
-//         }
-//         setData({
-//           isLoading: true,
-//           isSuccess: false,
-//           error: null,
-//           data: result
-//         });
-//         // let result = null;
-//         // switch (method) {
-//         //   case 'GET':
-//         //     result = await apiClient.get(url);
-//         //     break;
-//         //   case 'POST':
-//         //     result = await apiClient.post(url, body);
-//         //     break;
-//         //   default:
-//         //     throw new Error('lol');
-//         // };
-//       } catch (error) {
-//         setData({
-//           isLoading: false,
-//           isSuccess: false,
-//           error: error,
-//           data: null
-//         });
-//       }
-//     }
-//     dataFetch();
-//   }, [url, method, body]);
-//   return data;
-// }

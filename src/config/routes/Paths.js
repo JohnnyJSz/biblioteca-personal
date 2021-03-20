@@ -1,11 +1,11 @@
 export const HOME = '/';
 export const LOGOUT = '/logout';
 export const BOOKS = '/books';
-export const BOOKS_ID = '/books/:id(\\d+)';
+export const BOOKS_ID = '/books/:id';
 export const BOOKS_CREATE = '/books/create';
 export const BOOKS_ID_DELETE = '/books/:id/delete';
-export const BOOKS_ID_UPDATE = '/books/:id/update';
+export const BOOKS_ID_EDIT = '/books/:id/edit';
 export const CATEGORIES = '/categories';
 export const CATEGORIES_ID = '/categories/:id';
 export const CATEGORIES_ID_DELETE = '/categories/:id/delete';
-export const CATEGORIES_ID_UPDATE = '/categories/:id/update';
+export const CATEGORIES_ID_EDIT = '/categories/:id/edit';

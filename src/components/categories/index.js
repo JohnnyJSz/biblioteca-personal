@@ -1,1 +1,1 @@
-export { default } from "./CategoriesView";
+export { default } from "./Categories";

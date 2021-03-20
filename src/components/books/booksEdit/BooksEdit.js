@@ -1,15 +1,23 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
-import useFetch from "../../../hooks/useFetch";
-import apiClient from "../../../utils/apiClient";
-import { BOOKS } from "../../../config/routes/Paths";
-import { BackEndUrl } from "../../../config/access/backEnd";
-import BooksCreateView from "./BooksCreateView";
 import blobToBase64 from "../../../utils/blobToBase64";
+import apiClient from "../../../utils/apiClient";
+import useFetch from "../../../hooks/useFetch";
+import { BackEndUrl } from "../../../config/access/backEnd";
+import { BOOKS } from "../../../config/routes/Paths";
+import BooksCreateView from "../booksCreate/BooksCreateView";
 
-const BooksCreate = () => {
+const BooksEdit = (props) => {
+  const { location } = props;
+  const { state } = location;
+  const { bookToEdit } = state;
+
+  const [formValues, setFormValues] = useState(bookToEdit);
+
   const history = useHistory();
+
   const {
     isSuccess: isSuccessCategoriesFetched,
     data: categoriesFetched,
@@ -27,22 +35,15 @@ const BooksCreate = () => {
     { key: 5, value: 5 },
   ];
 
-  const initialValues = {
-    title: "",
-    description: "",
-    score: "",
-    categories: [],
-    image: "",
-    authors: [],
-  };
-
   const validationSchema = Yup.object({
     title: Yup.string()
       .min(2, "Title too short, min 2 characters")
-      .required("Title field is required"),
+      .required("Title field is required")
+      .nullable(),
     // description: Yup.string()
     //   .min(10, "Description too short, min 20 characters")
-    //   .required("Description field is required"),
+    //   .required("Description field is required")
+    //   .nullable(),
     // score: Yup.number().required("Score field is required"),
     categories: Yup.array()
       .min(1, "Categories field is required")
@@ -55,56 +56,59 @@ const BooksCreate = () => {
   });
 
   const onSubmit = async(values) => {
-    console.log("form data", values);
+    console.log("Form data : ", values);
 
     let base64Image;
-    if (values.image !== "") {
-      let file = values.image;
+    let file = values.image;
+    if (file instanceof Blob) {
       let reader = new FileReader();
-      // reader.onloadend = function() {
-      //   console.log("RESULT", reader.result);
-      // };
       reader.readAsDataURL(file);
       base64Image = await blobToBase64(file);
     } else {
-      base64Image = "";
+      file = '';
+      base64Image = file;
     }
 
+    let score = parseInt(values.score);
+    
     try {
       const body = {
         title: values.title,
         description: values.description,
-        score: values.score,
+        score: score,
         categories: values.categories,
         base64Image: base64Image,
         authors: values.authors,
       };
-      const response = await apiClient.post(
-        `${BackEndUrl}/books`,
-        JSON.stringify(body)
-      );
+      const url = bookToEdit
+        ? `${BackEndUrl}/books/${bookToEdit.id}`
+        : `${BackEndUrl}/books`;
+      const response = await apiClient.post(url, JSON.stringify(body));
       console.log(response);
     } catch (error) {
       console.log("***", error);
     }
-    alert("Libro CREADO");
+    console.log("*_*_*_LIBRO EDITADO_*_*_*");
     history.push(BOOKS);
   };
 
-  if (isSuccessCategoriesFetched && isSuccessAuthorsFetched) {
+  if (bookToEdit && isSuccessAuthorsFetched && isSuccessCategoriesFetched) {
     return (
-      <BooksCreateView
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={onSubmit}
-        categoriesFetched={categoriesFetched}
-        authorsFetched={authorsFetched}
-        scoreOptions={scoreOptions}
-      />
+      <div>
+        <BooksCreateView
+          initialValues={formValues}
+          enableReinitialize
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+          categoriesFetched={categoriesFetched}
+          authorsFetched={authorsFetched}
+          scoreOptions={scoreOptions}
+        />
+      </div>
     );
   } else {
-    return <h1>Loading...</h1>;
+    return <h2>Loading EDIT...</h2>;
   }
 };
 
-export default BooksCreate;
+export default BooksEdit;

@@ -1,1 +1,1 @@
-export { default } from './BooksDeleteView';
+export { default } from './BooksDelete';

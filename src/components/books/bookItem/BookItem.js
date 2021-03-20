@@ -4,14 +4,17 @@ import { generatePath } from "react-router-dom";
 import Card from "../../UI/Card";
 import { BOOKS_ID } from "../../../config/routes/Paths";
 
-const BookItem = ({ id, title, image, categories }) => {
+const BookItem = (props) => {
+  const {id, title, image, categories, score, authors, description } = props;
   return (
     <Card
       to={generatePath(BOOKS_ID, { id: id })}
-      id={id}
       title={title}
       image={image}
       categories={categories}
+      score={score}
+      authors={authors}
+      description={description}
     />
   );
 };

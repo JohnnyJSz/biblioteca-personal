@@ -10,6 +10,6 @@ export const MainLayout = styled.div`
   .mainContent {
     /* display: flex;
     justify-content: center; */
-    padding: 0.25rem 2rem 5vh 2rem;
+    padding: 10vh 2rem 5vh 2rem;
   }
 `;

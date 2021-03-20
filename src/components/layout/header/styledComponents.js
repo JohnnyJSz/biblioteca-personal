@@ -5,6 +5,9 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   background-color: #C5C5C5;
+  position: fixed;
+  width: 100vw;
+  height: 10vh;
 
   img {
     width: auto;
