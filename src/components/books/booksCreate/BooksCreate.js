@@ -5,11 +5,12 @@ import useFetch from "../../../hooks/useFetch";
 import apiClient from "../../../utils/apiClient";
 import { BOOKS } from "../../../config/routes/Paths";
 import { BackEndUrl } from "../../../config/access/backEnd";
-import BooksCreateView from "./BooksCreateView";
+import BooksCreateEditForm from "../BooksCreateEditForm";
 import blobToBase64 from "../../../utils/blobToBase64";
 
 const BooksCreate = () => {
   const history = useHistory();
+  
   const {
     isSuccess: isSuccessCategoriesFetched,
     data: categoriesFetched,
@@ -61,9 +62,6 @@ const BooksCreate = () => {
     if (values.image !== "") {
       let file = values.image;
       let reader = new FileReader();
-      // reader.onloadend = function() {
-      //   console.log("RESULT", reader.result);
-      // };
       reader.readAsDataURL(file);
       base64Image = await blobToBase64(file);
     } else {
@@ -93,7 +91,7 @@ const BooksCreate = () => {
 
   if (isSuccessCategoriesFetched && isSuccessAuthorsFetched) {
     return (
-      <BooksCreateView
+      <BooksCreateEditForm
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}

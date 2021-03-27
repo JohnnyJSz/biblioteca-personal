@@ -7,7 +7,7 @@ import apiClient from "../../../utils/apiClient";
 import useFetch from "../../../hooks/useFetch";
 import { BackEndUrl } from "../../../config/access/backEnd";
 import { BOOKS } from "../../../config/routes/Paths";
-import BooksCreateView from "../booksCreate/BooksCreateView";
+import BooksCreateEditForm from "../BooksCreateEditForm";
 
 const BooksEdit = (props) => {
   const { location } = props;
@@ -95,7 +95,7 @@ const BooksEdit = (props) => {
   if (bookToEdit && isSuccessAuthorsFetched && isSuccessCategoriesFetched) {
     return (
       <div>
-        <BooksCreateView
+        <BooksCreateEditForm
           initialValues={formValues}
           enableReinitialize
           validationSchema={validationSchema}

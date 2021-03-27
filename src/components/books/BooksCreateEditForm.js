@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import FormContainer from "../../form";
-const BooksCreateView = (props) => {
+import FormContainer from '../form/FormContainer';
+const BooksCreateEditForm = (props) => {
   const {
     initialValues,  
     enableReinitialize,
@@ -26,4 +26,4 @@ const BooksCreateView = (props) => {
   );
 };
 
-export default BooksCreateView;
+export default BooksCreateEditForm;
