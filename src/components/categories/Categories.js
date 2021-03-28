@@ -1,5 +1,9 @@
 import useFetch from "../../hooks/useFetch";
 import { BackEndUrl } from "../../config/access/backEnd";
+import SmallCard from '../UI/smallCard';
+
+import { Container } from './styledComponents';
+
 const Categories = () => {
   const { isLoading, isSuccess, isFailed, error, data: categories } = useFetch(
     `${BackEndUrl}/categories`,
@@ -10,17 +14,16 @@ const Categories = () => {
   } else if (isSuccess && categories) {
     return (
       <div>
-        <h3>Esta es el componente CATEGORIES</h3>
-        <div>
+        <h1>Categorías</h1>
+        <Container>
           {categories.map((category) => {
             return (
-              <div key={category.id}>
-                <h2>{category.name}</h2>
-                <h4>{category.id}</h4>
-              </div>
+              <SmallCard key={category.id}>
+                <h3>{category.name}</h3>
+              </SmallCard>
             );
           })}
-        </div>
+        </Container>
       </div>
     );
   } else if (isFailed && !isSuccess) {

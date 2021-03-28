@@ -17,6 +17,7 @@ const myStyles = {
     outline: 'none',
     border: 'none',
     borderStyle: 'none',
+    
   }),
   option: (provided) => ({
     ...provided,

@@ -12,5 +12,5 @@ export const Footer = styled.footer`
   box-shadow: 0px -1px 6px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px -1px 6px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px -1px 6px 0px rgba(0, 0, 0, 0.75);
-  z-index: 2;
+  /* z-index: 2; */
 `;

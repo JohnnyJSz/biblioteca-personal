@@ -95,6 +95,7 @@ const BooksEdit = (props) => {
   if (bookToEdit && isSuccessAuthorsFetched && isSuccessCategoriesFetched) {
     return (
       <div>
+        <h1>Editar un libro</h1>
         <BooksCreateEditForm
           initialValues={formValues}
           enableReinitialize

@@ -13,8 +13,10 @@ export const Label = styled.div`
 export const MyField = styled(Field)`
     padding: 8px;
     width: 45rem;
-    height: 1rem;
+    height: 1.5rem;
     background-color: whitesmoke;
     outline: none;
     border-style: none;
+    font-size: medium;
+    border-radius: 5px;
 `;

@@ -10,7 +10,7 @@ import blobToBase64 from "../../../utils/blobToBase64";
 
 const BooksCreate = () => {
   const history = useHistory();
-  
+
   const {
     isSuccess: isSuccessCategoriesFetched,
     data: categoriesFetched,
@@ -91,14 +91,17 @@ const BooksCreate = () => {
 
   if (isSuccessCategoriesFetched && isSuccessAuthorsFetched) {
     return (
-      <BooksCreateEditForm
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={onSubmit}
-        categoriesFetched={categoriesFetched}
-        authorsFetched={authorsFetched}
-        scoreOptions={scoreOptions}
-      />
+      <>
+        <h1>Añadir un libro</h1>
+        <BooksCreateEditForm
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+          categoriesFetched={categoriesFetched}
+          authorsFetched={authorsFetched}
+          scoreOptions={scoreOptions}
+        />
+      </>
     );
   } else {
     return <h1>Loading...</h1>;

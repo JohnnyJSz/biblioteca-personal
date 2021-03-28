@@ -11,35 +11,37 @@ export const GeneralContainer = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-
-`;
-
-export const Img = styled.img`
-  width: 15rem;
-  height: auto;
-  box-shadow: -10px 10px 10px -5px rgba(0, 0, 0, 1);
+  width: 300px;
+  height: 520px;
+  & img {
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: -10px 10px 10px -5px rgba(0, 0, 0, 1);
+  }
+  & a {
+    text-decoration: none;
+    color: #18191B;
+  }
 `;
 
 export const InfoContainer = styled.div`
   width: 70%;
-  padding: 0.5rem 1rem;
-`;
-
-export const Title = styled.div`
-    a {
-      text-decoration: none;
-      color: #18191B;
-    }
+  padding: 0 1rem;
+  & a {
+    text-decoration: none;
+    color: #18191B;
+  }
 `;
 
 export const Info = styled.div`
-    
-`;
-
-export const InfoCategories = styled.div`
-    
+  
 `;
 
 export const InfoDescription = styled.div`
-    
+  
+`;
+
+export const InfoCategoriesAuthors = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;

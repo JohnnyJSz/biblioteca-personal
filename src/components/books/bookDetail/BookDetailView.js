@@ -1,16 +1,18 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import BookItem from "../bookItem";
-import { Link, generatePath } from "react-router-dom";
+import { generatePath } from "react-router-dom";
 import { BOOKS_ID_EDIT, BOOKS_ID_DELETE } from "../../../config/routes/Paths";
+import SmallCard from "../../UI/smallCard";
+import { GeneralContainer, ControlsContainer } from './styledComponents';
 
 const BooksDetailView = ({ isLoading, data: book }) => {
   if (isLoading) {
     return <h2>Cargando...</h2>;
   } else {
-    console.log('libro a editar : ',book);
+    console.log("libro a editar : ", book);
     return (
-      <div>
+      <GeneralContainer>
         <BookItem
           id={book.id}
           title={book.title}
@@ -20,20 +22,21 @@ const BooksDetailView = ({ isLoading, data: book }) => {
           score={book.score}
           authors={book.authors}
         />
-        <div>
-          <Link
+        <ControlsContainer>
+          <SmallCard
             to={{
               pathname: generatePath(BOOKS_ID_EDIT, { id: book.id }),
               state: { bookToEdit: book },
             }}
+            success
           >
             Editar
-          </Link>
-          <Link to={generatePath(BOOKS_ID_DELETE, { id: book.id })}>
+          </SmallCard>
+          <SmallCard to={generatePath(BOOKS_ID_DELETE, { id: book.id })} danger>
             Eliminar
-          </Link>
-        </div>
-      </div>
+          </SmallCard>
+        </ControlsContainer>
+      </GeneralContainer>
     );
   }
 };

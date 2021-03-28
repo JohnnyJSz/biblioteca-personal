@@ -13,6 +13,7 @@ export const Container = styled.div`
     resize: none;
     font-style: italic;
     font-size: large;
+    border-radius: 5px;
   }
 `;
 
