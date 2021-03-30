@@ -5,9 +5,12 @@ export const GeneralContainer = styled.div`
   background-color: #ccc;
   display: flex;
   justify-content: space-evenly;
-  padding: 1rem;
-  margin: 0.5rem auto;
+  padding: 2rem 3rem;
+  margin: 1.5rem auto;
   border-radius: 10px;
+  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
 `;
 
 export const ImageContainer = styled.div`
@@ -26,6 +29,7 @@ export const ImageContainer = styled.div`
 
 export const InfoContainer = styled.div`
   width: 70%;
+  margin-left: 1rem;
   padding: 0 1rem;
   & a {
     text-decoration: none;

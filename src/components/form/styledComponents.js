@@ -19,7 +19,7 @@ export const MyForm = styled(Form)`
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
-  width: 50vw;
+  width: 60vw;
   height: 100%;
   padding: 1rem;
   background-color: #E6E6E6;

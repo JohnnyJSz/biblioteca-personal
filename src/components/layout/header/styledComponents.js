@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   background-color: #C5C5C5;
   position: fixed;
@@ -15,8 +16,8 @@ export const Header = styled.header`
 
   img {
     width: auto;
-    height: 5rem;
+    height: 8vh;
     padding: 10px;
-    border-radius: 25px;
+    border-radius: 20px;
   }
 `;

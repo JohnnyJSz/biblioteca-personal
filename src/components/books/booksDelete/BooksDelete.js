@@ -4,6 +4,9 @@ import useFetch from "../../../hooks/useFetch";
 import { BackEndUrl } from "../../../config/access/backEnd";
 import apiClient from "../../../utils/apiClient";
 import { BOOKS } from "../../../config/routes/Paths";
+import SmallCard from "../../UI/smallCard";
+
+import { GeneralContainer, ControlsContainer } from "./styledComponents";
 
 const BooksDelete = () => {
   const { id } = useParams();
@@ -17,9 +20,9 @@ const BooksDelete = () => {
   const DeleteBook = async() => {
     setIsDeleting(true);
     try {
-        await apiClient.del(`${BackEndUrl}/books/${id}`);
+      await apiClient.del(`${BackEndUrl}/books/${id}`);
     } catch (error) {
-        null;
+      null;
     }
     setIsDeleting(false);
     history.push(BOOKS);
@@ -33,17 +36,21 @@ const BooksDelete = () => {
     return <h1>Loading...</h1>;
   } else {
     return (
-      <div>
-        <h3>Esta es la BOOKS_ID_DELETE</h3>
-        <p>
-          ¿Quieres eliminar de la biblioteca el libro{" "}
-          <strong>{book.title}</strong>?
-        </p>
-        <button onClick={DeleteBook} disabled={isDeleting}>
-          Eliminar
-        </button>
-        <button onClick={goBackToBook}>Volver al libro</button>
-      </div>
+      <>
+        <h1>Eliminar libro</h1>
+        <GeneralContainer>
+          <p>
+            ¿Quieres eliminar de la biblioteca el libro{" "}
+            <strong>{book.title}</strong>?
+          </p>
+          <ControlsContainer>
+            <SmallCard onClick={DeleteBook} disabled={isDeleting}>
+              Eliminar
+            </SmallCard>
+            <SmallCard onClick={goBackToBook}>Volver al libro</SmallCard>
+          </ControlsContainer>
+        </GeneralContainer>
+      </>
     );
   }
 };

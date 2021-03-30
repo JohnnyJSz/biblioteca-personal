@@ -6,7 +6,7 @@ import { ThemeProvider } from "styled-components";
 import MainLayout from "./components/layout/mainLayout";
 import Theme from './config/theme';
 
-import { HOME, LOGOUT, BOOKS, BOOKS_ID, BOOKS_CREATE, CATEGORIES, BOOKS_ID_EDIT, BOOKS_ID_DELETE } from "./config/routes/Paths";
+import { HOME, LOGOUT, BOOKS, BOOKS_ID, BOOKS_CREATE, CATEGORIES, CATEGORIES_ID, BOOKS_ID_EDIT, BOOKS_ID_DELETE } from "./config/routes/Paths";
 import PrivateRoute from "./components/route/PrivateRoute";
 import PublicRoute from "./components/route/PublicRoute";
 import Home from "./components/home";
@@ -17,6 +17,7 @@ import BookEdit from "./components/books/booksEdit";
 import BookDelete from "./components/books/booksDelete";
 import BookDetail from "./components/books/bookDetail";
 import Categories from "./components/categories";
+import CategoriesDetail from "./components/categories/categoriesDetail";
 import PageNotFound from "./components/pageNotFound";
 
 function App() {
@@ -31,7 +32,8 @@ function App() {
               <PrivateRoute path={BOOKS_ID_DELETE} component={BookDelete} exact/>
               <PrivateRoute path={BOOKS_ID} component={BookDetail} exact/>
               <PrivateRoute path={BOOKS_CREATE} component={BooksCreate} exact/>
-              <PrivateRoute path={CATEGORIES} component={Categories} />
+              <PrivateRoute path={CATEGORIES} component={Categories} exact/>
+              <PrivateRoute path={CATEGORIES_ID} component={CategoriesDetail} exact/>
               <PrivateRoute path={LOGOUT} component={Logout} />
               <PublicRoute path={HOME} component={Home} exact />
               <Route component={PageNotFound} />

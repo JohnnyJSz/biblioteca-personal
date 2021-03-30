@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from "react";
-import { Link } from "react-router-dom";
+import { generatePath, Link } from "react-router-dom";
+import { CATEGORIES_ID } from '../../../config/routes/Paths';
 import SmallCard from "../smallCard";
 
 import {
@@ -16,9 +17,9 @@ import {
 const MediumCard = (props) => {
   const {
     to,
+    id,
     title,
     image,
-    id,
     categories,
     description,
     score,
@@ -27,12 +28,12 @@ const MediumCard = (props) => {
   return (
     <GeneralContainer>
       <ImageContainer>
-        <Link to={to ? to : "#"}>
+        <Link to={to ? to : "/#"}>
           <img src={image} alt={`${title}_image`} />
         </Link>
       </ImageContainer>
       <InfoContainer>
-        <Link to={to ? to : '#'}>
+        <Link to={to ? to : '/#'}>
             <h1>{title}</h1>
         </Link>
         <div>
@@ -41,7 +42,13 @@ const MediumCard = (props) => {
           <InfoCategoriesAuthors>
             {categories?.length
               ? categories.map((category) => (
-                  <SmallCard key={category.id}>{category.name}</SmallCard>
+                  <SmallCard 
+                    key={category.id}
+                    to={{
+                      pathname: generatePath(CATEGORIES_ID, {id: category.id}),
+                      //state: { books: props },
+                    }}
+                  >{category.name}</SmallCard>
                 ))
               : "No categories for the book have been added yet."}
           </InfoCategoriesAuthors>

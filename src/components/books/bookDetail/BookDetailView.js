@@ -4,7 +4,7 @@ import BookItem from "../bookItem";
 import { generatePath } from "react-router-dom";
 import { BOOKS_ID_EDIT, BOOKS_ID_DELETE } from "../../../config/routes/Paths";
 import SmallCard from "../../UI/smallCard";
-import { GeneralContainer, ControlsContainer } from './styledComponents';
+import { GeneralContainer, ControlsContainer } from "./styledComponents";
 
 const BooksDetailView = ({ isLoading, data: book }) => {
   if (isLoading) {
@@ -28,11 +28,10 @@ const BooksDetailView = ({ isLoading, data: book }) => {
               pathname: generatePath(BOOKS_ID_EDIT, { id: book.id }),
               state: { bookToEdit: book },
             }}
-            success
           >
             Editar
           </SmallCard>
-          <SmallCard to={generatePath(BOOKS_ID_DELETE, { id: book.id })} danger>
+          <SmallCard to={generatePath(BOOKS_ID_DELETE, { id: book.id })}>
             Eliminar
           </SmallCard>
         </ControlsContainer>
