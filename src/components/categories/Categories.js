@@ -29,7 +29,7 @@ const Categories = () => {
                 key={category.id} 
                 to={{
                   pathname: generatePath(CATEGORIES_ID, {id: category.id}),
-                  //state: { books: books },
+                  state: { categoryName: category.name },
                 }}
                 >
                 <h3>{category.name}</h3>

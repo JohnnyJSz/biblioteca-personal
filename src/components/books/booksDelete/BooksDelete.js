@@ -12,6 +12,7 @@ const BooksDelete = () => {
   const { id } = useParams();
   const history = useHistory();
   const [isDeleting, setIsDeleting] = useState(false);
+
   const { isSuccess, data: book } = useFetch(
     `${BackEndUrl}/books/${id}`,
     "GET"
@@ -29,7 +30,7 @@ const BooksDelete = () => {
   };
 
   const goBackToBook = () => {
-    history.push(`/books/${id}`);
+    history.push(BOOKS);
   };
 
   if (!isSuccess) {

@@ -1,1 +1,1 @@
-export { default } from './CategoriesDeleteView';
+export { default } from './CategoriesDelete';
