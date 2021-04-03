@@ -31,25 +31,29 @@ const CategoriesDelete = (props) => {
     history.goBack();
   };
 
-  return (
-    <div>
-      <h1>Eliminar categoría</h1>
-      <GeneralContainer>
-        <p>
-          ¿Quieres eliminar de la biblioteca la categoría
-          <strong>{categoryName}</strong>?
-        </p>
-        <ControlsContainer>
-          <SmallCard onClick={DeleteCategory} disabled={isDeleting}>
-            Eliminar
-          </SmallCard>
-          <SmallCard onClick={goBackToCategory}>
-            Volver a la categoría {categoryName}
-          </SmallCard>
-        </ControlsContainer>
-      </GeneralContainer>
-    </div>
-  );
+  if (categoryName) {
+    return (
+      <div>
+        <h1>Eliminar categoría</h1>
+        <GeneralContainer>
+          <p>
+            ¿Quieres eliminar de la biblioteca la categoría <strong>{categoryName}</strong>?
+          </p>
+          <ControlsContainer>
+            <SmallCard onClick={DeleteCategory} disabled={isDeleting}>
+              Eliminar
+            </SmallCard>
+            <SmallCard onClick={goBackToCategory}>
+              Volver a la categoría {categoryName}
+            </SmallCard>
+          </ControlsContainer>
+        </GeneralContainer>
+      </div>
+    );
+  } else {
+    return <h2>Loading...</h2>;
+  }
+  
 };
 
 export default CategoriesDelete;

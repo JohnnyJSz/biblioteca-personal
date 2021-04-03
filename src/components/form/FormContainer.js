@@ -43,7 +43,6 @@ const FormContainer = (props) => {
                 label='Descripción del libro'
                 name='description'
               />
-
               <FormControl
                 control='radio'
                 label='Puntuación del libro'

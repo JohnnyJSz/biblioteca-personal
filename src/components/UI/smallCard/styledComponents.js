@@ -11,8 +11,8 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  width: 10rem;
-  height: 3rem;
+  width: 12rem;
+  height: 3.5rem;
   padding: .2px 0.5rem;
   margin: .2rem;
   background-color: ${props => props.success ? 'red' : '#6d6f6f'};

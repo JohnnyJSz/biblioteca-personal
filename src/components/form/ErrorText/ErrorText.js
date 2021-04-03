@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-import { Container as StyledContainer } from './styledComponents';
+import { Container } from './styledComponents';
 
 const ErrorText = (props) => {
     return (
-        <StyledContainer>
+        <Container>
             {props.children}
-        </StyledContainer>
+        </Container>
     );
 };
 
