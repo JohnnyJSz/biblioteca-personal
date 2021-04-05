@@ -5,12 +5,12 @@ import { BOOKS_ID, CATEGORIES_ID_DELETE } from "../../../config/routes/Paths";
 import MediumCard from "../../UI/mediumCard";
 import SmallCard from "../../UI/smallCard";
 
-import { ControlsContainer } from "./styledComponents";
+import { Container, ControlsContainer } from "./styledComponents";
 
 const CategoriesDetailView = (props) => {
   const { categoryId, booksWithCategory, categoryName } = props;
   return (
-    <div>
+    <Container>
       <h1>{categoryName}</h1>
       <h4>iD: {categoryId}</h4>
       {categoryName ? <h3>Libros con la categoría {categoryName}</h3> : null}
@@ -48,7 +48,7 @@ const CategoriesDetailView = (props) => {
           </SmallCard>
         </ControlsContainer>
       </div>
-    </div>
+    </Container>
   );
 };
 

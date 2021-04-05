@@ -2,12 +2,14 @@ import React from "react";
 import BookItem from "./bookItem";
 import PropTypes from "prop-types";
 
+import { Container } from './styledComponents';
+
 function BooksView({ isLoading, data: books }) {
   if (isLoading) {
     return <h2>Cargando...</h2>;
   } else {
     return (
-      <div>
+      <Container>
         <h1>Libros</h1>
         {books.map((book) => {
           const {
@@ -39,7 +41,7 @@ function BooksView({ isLoading, data: books }) {
             />
           );
         })}
-      </div>
+      </Container>
     );
   }
 }

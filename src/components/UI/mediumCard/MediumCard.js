@@ -6,11 +6,10 @@ import { CATEGORIES_ID } from '../../../config/routes/Paths';
 import SmallCard from "../smallCard";
 
 import {
-  GeneralContainer,
+  Container,
   ImageContainer,
   InfoContainer,
-  // el DIV es Info,
-  InfoDescription,
+  RestInfo,
   InfoCategoriesAuthors,
 } from "./styledComponents";
 
@@ -26,7 +25,7 @@ const MediumCard = (props) => {
     authors,
   } = props;
   return (
-    <GeneralContainer>
+    <Container>
       <ImageContainer>
         <Link to={to ? to : "/#"}>
           <img src={image} alt={`${title}_image`} />
@@ -36,8 +35,8 @@ const MediumCard = (props) => {
         <Link to={to ? to : '/#'}>
             <h1>{title}</h1>
         </Link>
-        <div>
-          <InfoDescription>{description}</InfoDescription>
+        <RestInfo>
+          <div>{description}</div>
           <h3>Categoría/s</h3>
           <InfoCategoriesAuthors>
             {categories?.length
@@ -63,9 +62,9 @@ const MediumCard = (props) => {
                 ))
               : "No authors for the book have been added yet."}
           </InfoCategoriesAuthors>
-        </div>
+        </RestInfo>
       </InfoContainer>
-    </GeneralContainer>
+    </Container>
   );
 };
 

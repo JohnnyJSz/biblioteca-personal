@@ -20,12 +20,12 @@ const Nav = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink activeClassName='active' to={CATEGORIES}>
+          <NavLink activeClassName='active' to={CATEGORIES} exact>
             Categorías
           </NavLink>
         </li>
         <li>
-          <NavLink activeClassName='active' to={LOGOUT}>
+          <NavLink activeClassName='active' to={LOGOUT} exact>
             Cerrar Sesión
           </NavLink>
         </li>

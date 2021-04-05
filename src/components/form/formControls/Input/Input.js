@@ -4,19 +4,19 @@ import { ErrorMessage } from "formik";
 import ErrorText from '../../ErrorText';
 
 import {
-  Container as StyledContainer,
-  Label as StyledLabel,
+  Container,
+  Label,
   MyField as StyledField,
 } from "./styledComponents";
 
 const Input = (props) => {
   const { label, name, ...rest } = props;
   return (
-    <StyledContainer>
-      <StyledLabel htmlFor={name}>{label}</StyledLabel>
+    <Container>
+      <Label htmlFor={name}>{label}</Label>
       <StyledField id={name} name={name} {...rest} />
       <ErrorMessage name={name} component={ErrorText} />
-    </StyledContainer>
+    </Container>
   );
 };
 

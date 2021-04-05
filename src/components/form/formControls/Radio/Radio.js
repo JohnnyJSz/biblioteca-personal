@@ -4,9 +4,9 @@ import { Field, ErrorMessage } from "formik";
 import ErrorText from "../../ErrorText";
 
 import {
-  MainContainer as StyledMainContainer,
-  Label as StyledLabel,
-  FieldContainer as StyledFieldContainer,
+  MainContainer,
+  Label,
+  FieldContainer,
   InputContainer as StyledInputContainer,
   Input as StyledInput,
   InputLabel as StyledInputLabel,
@@ -15,9 +15,9 @@ import {
 const Radio = (props) => {
   const { label, name, options, ...rest } = props;
   return (
-    <StyledMainContainer>
-      <StyledLabel htmlFor={name}>{label}</StyledLabel>
-      <StyledFieldContainer>
+    <MainContainer>
+      <Label htmlFor={name}>{label}</Label>
+      <FieldContainer>
         <Field id={name} name={name} {...rest}>
           {({ field }) => {
             return options.map((option) => {
@@ -38,9 +38,9 @@ const Radio = (props) => {
             });
           }}
         </Field>
-      </StyledFieldContainer>
+      </FieldContainer>
       <ErrorMessage name={name} component={ErrorText} />
-    </StyledMainContainer>
+    </MainContainer>
   );
 };
 

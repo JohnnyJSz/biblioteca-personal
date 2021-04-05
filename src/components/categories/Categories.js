@@ -3,7 +3,7 @@ import { generatePath } from 'react-router-dom';
 import { BackEndUrl } from "../../config/access/backEnd";
 import SmallCard from '../UI/smallCard';
 
-import { Container } from './styledComponents';
+import { Container, SubContainer } from './styledComponents';
 import { CATEGORIES_ID } from "../../config/routes/Paths";
 
 const Categories = () => {
@@ -20,9 +20,9 @@ const Categories = () => {
     return <h1>Loading...</h1>;
   } else if (isSuccessCategories && isSuccessBooks && categories && books) {
     return (
-      <div>
+      <Container>
         <h1>Categorías</h1>
-        <Container>
+        <SubContainer>
           {categories.map((category) => {
             return (
               <SmallCard 
@@ -36,8 +36,8 @@ const Categories = () => {
               </SmallCard>
             );
           })}
-        </Container>
-      </div>
+        </SubContainer>
+      </Container>
     );
   } else if (isFailed) {
     console.log("Error!", error);

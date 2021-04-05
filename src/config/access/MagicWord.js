@@ -1,1 +1,1 @@
-export const MAGIC_WORD = "latteandcode";
+export const MAGIC_WORD = "user";

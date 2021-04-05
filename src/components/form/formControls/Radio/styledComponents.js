@@ -1,7 +1,35 @@
 import styled from "styled-components";
+import { responsive } from "../../../UI/responsive/responsive";
 
 export const MainContainer = styled.div`
-  width: 46rem;
+  width: 49.5vmax;
+  padding: 1rem;
+
+  @media ${responsive.tabletL} {
+    width: 48.5vmax;
+  }
+
+  @media ${responsive.tablet} {
+    width: 47.5vmax;
+  }
+
+  @media (max-width: 590px) {
+    width: 46.5vmax;
+  }
+
+  @media ${responsive.mobileL} {
+    width: 43.5vmax;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media ${responsive.mobileM} {
+    width: 41.5vmax;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const Label = styled.div`
@@ -10,10 +38,21 @@ export const Label = styled.div`
 `;
 
 export const FieldContainer = styled.div`
-  width: 25rem;
+  width: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+
+  @media ${responsive.mobileL} {
+    width: 43.5vmax;
+    align-items: center;
+  }
+
+  @media ${responsive.mobileM} {
+    width: 40vmax;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const InputContainer = styled.div`

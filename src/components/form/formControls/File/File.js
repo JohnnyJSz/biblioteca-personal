@@ -5,28 +5,26 @@ import { Field, ErrorMessage } from "formik";
 import ErrorText from "../../ErrorText";
 
 import {
-  MainContainer as StyledMainContainer,
-  MainLabel as StyledMainLabel,
-  FieldContainer as StyledFieldContainer,
-  InputContainer as StyledInputContainer,
-  //InputLabel as StyledInputLabel,
-  Input as StyledInput,
-  ImgPreviewContainer as StyledImgPreviewContainer,
-  Img as StyledImg,
+  MainContainer,
+  MainLabel,
+  InputContainer,
+  Input,
+  ImgPreviewContainer,
+  Img,
 } from "./styledComponents";
 
 const File = (props) => {
   const { label, name, dataToEdit, ...rest } = props;
   const [imagePreview, setImagePreview] = useState(dataToEdit);
   return (
-    <StyledMainContainer>
-      <StyledMainLabel htmlFor={name}>{label}</StyledMainLabel>
+    <MainContainer>
+      <MainLabel htmlFor={name}>{label}</MainLabel>
       <Field id={name} name={name} {...rest}>
         {({ form }) => {
           //console.log('FIELD FILE value - ',field.value);
           return (
-            <StyledInputContainer>
-              <StyledInput
+            <InputContainer>
+              <Input
                 name={name}
                 type='file'
                 onChange={(e) => {
@@ -39,18 +37,17 @@ const File = (props) => {
                 }}
                 id={name}
               />
-
               {imagePreview ? (
-                <StyledImgPreviewContainer>
-                  <StyledImg src={imagePreview} alt={`${label}_image`} />
-                </StyledImgPreviewContainer>
+                <ImgPreviewContainer>
+                  <Img src={imagePreview} alt={`${label}_image`} />
+                </ImgPreviewContainer>
               ) : null}
-            </StyledInputContainer>
+            </InputContainer>
           );
         }}
       </Field>
       <ErrorMessage name={name} component={ErrorText} />
-    </StyledMainContainer>
+    </MainContainer>
   );
 };
 

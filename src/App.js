@@ -4,7 +4,8 @@ import AuthContextProvider from "./context/AuthContext";
 import { ThemeProvider } from "styled-components";
 
 import MainLayout from "./components/layout/mainLayout";
-import Theme from './config/theme';
+
+import { themeDay } from './config/theme';
 
 import { HOME, LOGOUT, BOOKS, BOOKS_ID, BOOKS_CREATE, CATEGORIES, CATEGORIES_ID, BOOKS_ID_EDIT, BOOKS_ID_DELETE, CATEGORIES_ID_DELETE } from "./config/routes/Paths";
 import PrivateRoute from "./components/route/PrivateRoute";
@@ -23,7 +24,7 @@ import PageNotFound from "./components/pageNotFound";
 
 function App() {
   return (
-    <ThemeProvider theme={Theme}>
+    <ThemeProvider theme={themeDay} >
       <AuthContextProvider>
         <BrowserRouter>
           <MainLayout>

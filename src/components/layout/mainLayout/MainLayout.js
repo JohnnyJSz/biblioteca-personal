@@ -9,9 +9,9 @@ import Footer from "../footer";
 const MainLayout = ({ children }) => {
   return (
     <StyledMainLayout>
-      <Header />
+      <Header/>
       <Content>{children}</Content>
-      <Footer />
+      <Footer/>
     </StyledMainLayout>
   );
 };

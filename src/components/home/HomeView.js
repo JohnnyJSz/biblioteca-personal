@@ -1,12 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {
-  HomeMainContainer as StyledHomeMainContainer,
-  Form as StyledForm,
-  Button as StyledButton,
-  Input as StyledInput
-} from "./styledComponents";
+import { MainContainer, Form, Button, Input } from "./styledComponents";
 
 const HomeView = ({
   handleSubmit,
@@ -15,18 +10,19 @@ const HomeView = ({
   loginMessage,
 }) => {
   return (
-    <StyledHomeMainContainer>
-      <StyledForm onSubmit={handleSubmit}>
-        <StyledInput
+    <MainContainer>
+      <h1>📚</h1>
+      <Form onSubmit={handleSubmit}>
+        <Input
           placeholder='Palabra mágica'
           type='text'
           value={magicWord}
           onChange={handleInputChange}
         />
-        <StyledButton type='submit'>Iniciar Sesión</StyledButton>
-      </StyledForm>
+        <Button type='submit'>Iniciar Sesión</Button>
+      </Form>
       <p>{loginMessage}</p>
-    </StyledHomeMainContainer>
+    </MainContainer>
   );
 };
 

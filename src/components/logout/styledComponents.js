@@ -1,22 +1,22 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: auto;
-  padding: 0vh 0vh 4vh 0vh;
-`;
-
-export const SubContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin: 1rem auto 0rem auto;
-  padding: 1rem;
+  background-color: #ccc;
+  padding: 2rem 3rem;
+  margin: auto;
   width: 100%;
   max-width: 75vmax;
-  background-color: #e2e2e2;
-  border-radius: 15px;
+  /* margin: 1.5rem auto; */
+  border-radius: 10px;
   box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+
+  h1, h3 {
+    margin-bottom: 1rem;
+  }
 `;

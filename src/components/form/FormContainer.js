@@ -1,14 +1,12 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from "react";
-import { Formik, Form } from "formik";
+import { Formik } from "formik";
 import FormControl from "./FormControl";
 
 import {
-  X as StyledX,
-  MyFormik as StyledMyFormik,
-  MyForm as StyledMyForm,
-  Button as StyledButton,
+  Container,
+  MyForm,
+  Button,
 } from "./styledComponents";
 
 const FormContainer = (props) => {
@@ -23,7 +21,7 @@ const FormContainer = (props) => {
   } = props;
 
   return (
-    <StyledX>
+    <Container>
       <Formik
         initialValues={initialValues}
         enableReinitialize={enableReinitialize}
@@ -32,7 +30,7 @@ const FormContainer = (props) => {
       >
         {(formik) => {
           return (
-            <StyledMyForm>
+            <MyForm>
               <FormControl
                 control='input'
                 label='Título del libro'
@@ -69,17 +67,17 @@ const FormContainer = (props) => {
                 options={authorsFetched}
                 dataToEdit={formik.initialValues.authors}
               />
-              <StyledButton
+              <Button
                 type='submit'
                 disabled={!formik.isValid && !formik.dirty}
               >
                 Submit
-              </StyledButton>
-            </StyledMyForm>
+              </Button>
+            </MyForm>
           );
         }}
       </Formik>
-    </StyledX>
+    </Container>
   );
 };
 

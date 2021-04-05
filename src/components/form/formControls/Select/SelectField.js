@@ -5,43 +5,42 @@ import ErrorText from "../../ErrorText";
 import CreatableSelect from "react-select/creatable";
 
 import {
-  Container as StyledContainer,
-  Label as StyledLabel,
+  Container,
+  Label,
+  MyStyles,
 } from "./styledComponents";
 
-
-const myStyles = {
-  menu: (provided) => ({
-    ...provided,
-    width: '46rem',
-    outline: 'none',
-    border: 'none',
-    borderStyle: 'none',
-    
-  }),
-  option: (provided) => ({
-    ...provided,
-    width: '46rem',
-    outline: 'none',
-    border: 'none',
-    borderStyle: 'none',
-  }),
-  control: (provided) => ({
-    ...provided,
-    width: '46rem',
-    background: "whitesmoke",
-    outline: 'none',
-    borderStyle: 'none',
-    // zIndex: 1,
-  }),
-};
+// const myStyles = {
+//   menu: (provided) => ({
+//     ...provided,
+//     width: '46rem',
+//     outline: 'none',
+//     border: 'none',
+//     borderStyle: 'none',
+//   }),
+//   option: (provided) => ({
+//     ...provided,
+//     width: '45rem',
+//     outline: 'none',
+//     border: 'none',
+//     borderStyle: 'none',
+//   }),
+//   control: (provided) => ({
+//     ...provided,
+//     width: '45rem',
+//     background: "red",
+//     outline: 'none',
+//     borderStyle: 'none',
+//     // zIndex: 1,
+//   }),
+// };
 
 const SelectField = (props) => {
   const { label, name, options, dataToEdit, ...rest } = props;
   if (dataToEdit) {
     return (
-      <StyledContainer>
-        <StyledLabel htmlFor={name}>{label}</StyledLabel>
+      <Container>
+        <Label htmlFor={name}>{label}</Label>
         <Field id={name} name={name} {...rest} multiple={true}>
           {({ form }) => {
             return (
@@ -57,13 +56,13 @@ const SelectField = (props) => {
                 })}
                 name={name}
                 defaultValue={dataToEdit}
-                styles={myStyles}
+                styles={MyStyles}
               />
             );
           }}
         </Field>
         <ErrorMessage name={name} component={ErrorText} />
-      </StyledContainer>
+      </Container>
     );
   } else {
     return <label>Loading...</label>;

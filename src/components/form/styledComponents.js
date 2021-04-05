@@ -1,31 +1,54 @@
 /* eslint-disable no-unused-vars */
 import styled from "styled-components";
-import { Formik, Form } from "formik";
+import { Form } from "formik";
+import { responsive } from "../UI/responsive/responsive";
 
-export const X = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin: 1rem auto 0rem auto;
 `;
-
-// export const MyFormik = styled(Formik)`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-// `;
 
 export const MyForm = styled(Form)`
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
-  width: 60vw;
+  width: 100%;
+  max-width: 75vmax;
+  /* width: auto;
+  max-width: 75vmax; */
   height: 100%;
   padding: 1rem;
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
   box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+
+  @media ${responsive.tabletL} {
+    width: 100%;
+  }
+
+  @media ${responsive.tablet} {
+    width: 100%;
+  }
+
+  @media (max-width: 590px) {
+    width: auto;
+    padding: 0.8rem;
+  }
+
+  @media ${responsive.mobileL} {
+    width: auto;
+    padding: 0.6rem;
+  }
+
+  @media ${responsive.mobileM} {
+    width: auto;
+    padding: 0.4rem;
+    min-width: 100vmin;
+  }
 `;
 
 export const Button = styled.button`

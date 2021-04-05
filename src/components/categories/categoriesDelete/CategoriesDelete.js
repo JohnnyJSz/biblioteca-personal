@@ -4,11 +4,13 @@ import { useParams, useHistory } from "react-router";
 import { BackEndUrl } from "../../../config/access/backEnd";
 import { CATEGORIES } from "../../../config/routes/Paths";
 import apiClient from "../../../utils/apiClient";
+import PageNotFound from "../../pageNotFound/PageNotFound";
 import SmallCard from "../../UI/smallCard";
 
-import { GeneralContainer, ControlsContainer } from "./styledComponents";
+import { Container, SubContainer, ControlsContainer } from "./styledComponents";
 
 const CategoriesDelete = (props) => {
+  console.log(props);
   const { location } = props;
   const { state } = location;
   const { categoryName } = state;
@@ -31,11 +33,11 @@ const CategoriesDelete = (props) => {
     history.goBack();
   };
 
-  if (categoryName) {
+  if (categoryName !== undefined) {
     return (
-      <div>
+      <Container>
         <h1>Eliminar categoría</h1>
-        <GeneralContainer>
+        <SubContainer>
           <p>
             ¿Quieres eliminar de la biblioteca la categoría <strong>{categoryName}</strong>?
           </p>
@@ -47,11 +49,11 @@ const CategoriesDelete = (props) => {
               Volver a la categoría {categoryName}
             </SmallCard>
           </ControlsContainer>
-        </GeneralContainer>
-      </div>
+        </SubContainer>
+      </Container>
     );
   } else {
-    return <h2>Loading...</h2>;
+    return <PageNotFound message='Category undefined'/>;
   }
   
 };

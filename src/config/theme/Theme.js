@@ -1,4 +1,4 @@
-const themeDay = {
+export const themeDay = {
     background: '#FFFFFF',
     color: '#18191B',
     fontSize: {
@@ -18,4 +18,4 @@ export const themeNight = {
     }
 };
 
-export default themeDay;
+// export default themeDay;

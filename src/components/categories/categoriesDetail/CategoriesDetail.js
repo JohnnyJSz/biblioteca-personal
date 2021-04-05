@@ -6,8 +6,12 @@ import CategoriesDetailView from "./CategoriesDetailView";
 
 const CategoriesDetail = (props) => {
   const { location } = props;
-  const { state } = location;
-  const { categoryName } = state;
+
+  let categoryName;
+  if (location?.state) {
+    categoryName = location.state.categoryName;
+  } 
+  
   const { id } = useParams();
 
   const { isLoading, isSuccess, data: books } = useFetch(
@@ -15,11 +19,13 @@ const CategoriesDetail = (props) => {
     "GET"
   );
 
+
   if (!isLoading && isSuccess && books) {
     let booksWithCategory = [];
     for (const book of books) {
       book.categories.map((category) => {
         if (category.id.includes(id)) {
+          categoryName = category.name;
           booksWithCategory.push(book);
         }
       });

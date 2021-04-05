@@ -8,6 +8,8 @@ import { BackEndUrl } from "../../../config/access/backEnd";
 import BooksCreateEditForm from "../BooksCreateEditForm";
 import blobToBase64 from "../../../utils/blobToBase64";
 
+import { Container } from './styledComponents';
+
 const BooksCreate = () => {
   const history = useHistory();
 
@@ -91,7 +93,7 @@ const BooksCreate = () => {
 
   if (isSuccessCategoriesFetched && isSuccessAuthorsFetched) {
     return (
-      <>
+      <Container>
         <h1>Añadir un libro</h1>
         <BooksCreateEditForm
           initialValues={initialValues}
@@ -101,10 +103,10 @@ const BooksCreate = () => {
           authorsFetched={authorsFetched}
           scoreOptions={scoreOptions}
         />
-      </>
+      </Container>
     );
   } else {
-    return <h1>Loading...</h1>;
+    return <Container><h1>Loading...</h1></Container>;
   }
 };
 

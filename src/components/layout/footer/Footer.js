@@ -4,7 +4,7 @@ import { Footer as StyledFooter } from './styledComponents';
 const Footer = () => {
   return (
     <StyledFooter>
-      <p>Personal library & Librarify  - Latte and Code (c)</p>
+      <p>📚 & Librarify - Latte and Code &copy; | by Jonathan J. Salazar</p>
     </StyledFooter>
   );
 };

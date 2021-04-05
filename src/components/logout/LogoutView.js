@@ -1,5 +1,6 @@
 import useAuthContext from "../../hooks/UseAuthContext";
 import SmallCard from '../UI/smallCard';
+import { Container } from "./styledComponents";
 
 const LogoutView = () => {
   const { logout } = useAuthContext();
@@ -9,11 +10,11 @@ const LogoutView = () => {
   };
 
   return (
-    <div>
+    <Container>
       <h1>Cerrar sesión</h1>
       <h3>¿Quieres cerrar sesión?</h3>
       <SmallCard onClick={handleClick}>Cerrar sesión</SmallCard>
-    </div>
+    </Container>
   );
 };
 

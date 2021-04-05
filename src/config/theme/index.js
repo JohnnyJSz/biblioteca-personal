@@ -1,1 +1,1 @@
-export { default } from "./Theme.js";
+export { themeNight, themeDay } from "./Theme.js";

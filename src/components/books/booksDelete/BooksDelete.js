@@ -6,7 +6,7 @@ import apiClient from "../../../utils/apiClient";
 import { BOOKS } from "../../../config/routes/Paths";
 import SmallCard from "../../UI/smallCard";
 
-import { GeneralContainer, ControlsContainer } from "./styledComponents";
+import { Container, SubContainer, ControlsContainer } from "./styledComponents";
 
 const BooksDelete = () => {
   const { id } = useParams();
@@ -37,9 +37,9 @@ const BooksDelete = () => {
     return <h1>Loading...</h1>;
   } else {
     return (
-      <>
+      <Container>
         <h1>Eliminar libro</h1>
-        <GeneralContainer>
+        <SubContainer>
           <p>
             ¿Quieres eliminar de la biblioteca el libro{" "}
             <strong>{book.title}</strong>?
@@ -50,8 +50,8 @@ const BooksDelete = () => {
             </SmallCard>
             <SmallCard onClick={goBackToBook}>Volver al libro</SmallCard>
           </ControlsContainer>
-        </GeneralContainer>
-      </>
+        </SubContainer>
+      </Container>
     );
   }
 };

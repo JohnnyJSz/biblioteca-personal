@@ -9,6 +9,8 @@ import { BackEndUrl } from "../../../config/access/backEnd";
 import { BOOKS } from "../../../config/routes/Paths";
 import BooksCreateEditForm from "../BooksCreateEditForm";
 
+import { Container } from './styledComponents';
+
 const BooksEdit = (props) => {
   const { location } = props;
   const { state } = location;
@@ -94,7 +96,7 @@ const BooksEdit = (props) => {
 
   if (bookToEdit && isSuccessAuthorsFetched && isSuccessCategoriesFetched) {
     return (
-      <div>
+      <Container>
         <h1>Editar un libro</h1>
         <BooksCreateEditForm
           initialValues={formValues}
@@ -105,7 +107,7 @@ const BooksEdit = (props) => {
           authorsFetched={authorsFetched}
           scoreOptions={scoreOptions}
         />
-      </div>
+      </Container>
     );
   } else {
     return <h2>Loading EDIT...</h2>;
