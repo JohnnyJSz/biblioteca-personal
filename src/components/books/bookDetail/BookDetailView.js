@@ -4,7 +4,7 @@ import BookItem from "../bookItem";
 import { generatePath } from "react-router-dom";
 import { BOOKS_ID_EDIT, BOOKS_ID_DELETE } from "../../../config/routes/Paths";
 import SmallCard from "../../UI/smallCard";
-import { GeneralContainer, ControlsContainer } from "./styledComponents";
+import { Container, ControlsContainer } from "./styledComponents";
 
 const BooksDetailView = ({ isLoading, data: book }) => {
   if (isLoading) {
@@ -12,7 +12,7 @@ const BooksDetailView = ({ isLoading, data: book }) => {
   } else {
     console.log("libro a editar : ", book);
     return (
-      <GeneralContainer>
+      <Container>
         <BookItem
           id={book.id}
           title={book.title}
@@ -35,7 +35,7 @@ const BooksDetailView = ({ isLoading, data: book }) => {
             Eliminar
           </SmallCard>
         </ControlsContainer>
-      </GeneralContainer>
+      </Container>
     );
   }
 };
