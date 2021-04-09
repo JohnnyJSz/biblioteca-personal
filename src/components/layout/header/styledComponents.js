@@ -59,7 +59,7 @@ export const Header = styled.header`
     .iconNoAuth {
       width: 15%;
       height: 8vh;
-      margin: 0 0 0 0rem;
+      margin: 0 0 0 1.5rem;
     }
   }
 
@@ -75,7 +75,7 @@ export const Header = styled.header`
     .iconNoAuth {
       width: 15%;
       height: 8vh;
-      margin: 0 0 0 0rem;
+      margin: 0 0 0 1.5rem;
     }
   }
 
@@ -91,7 +91,7 @@ export const Header = styled.header`
     .iconNoAuth {
       width: 15%;
       height: 8vh;
-      margin: 0 0 0 0rem;
+      margin: 0 0 0 1.5rem;
     }
   }
 `;

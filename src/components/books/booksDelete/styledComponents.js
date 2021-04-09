@@ -4,6 +4,7 @@ import { responsive } from "../../UI/responsive/responsive";
 export const Container = styled.div`
   height: auto;
   padding: 0vh 0vh 6vh 0vh;
+  border: 2px solid red;
 `;
 
 export const SubContainer = styled.div`

@@ -48,9 +48,6 @@ export const Container = styled.div`
 export const ImageContainer = styled.div`
   width: 300px;
   height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   & img {
     max-width: 100%;
     max-height: 100%;
@@ -61,41 +58,23 @@ export const ImageContainer = styled.div`
     color: #18191B;
   }
 
-  @media ${responsive.tabletL} {
-    width: 300px;
-    display: flex;
-    justify-content: center;
-  }
-
-  @media ${responsive.tablet} {
-    width: 300px;
-    display: flex;
-    justify-content: center;
-  }
-
   @media (max-width: 590px) {
     width: 100%;
-    display: flex;
-    justify-content: center;
   }
 
   @media ${responsive.mobileL} {
     width: 100%;
-    display: flex;
-    justify-content: center;
   }
 
   @media ${responsive.mobileM} {
     width: 100%;
-    display: flex;
-    justify-content: center;
   }
 `;
 
 export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 70%;
   margin: 0 0 0 1rem;
   padding: 1rem 1rem;
@@ -136,28 +115,11 @@ export const InfoContainer = styled.div`
 
 `;
 
-// export const RestInfo = styled.div`
-// border: 2px solid green;
-//   height: 80%;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-around;
-// `;
-
-export const TitleContainer = styled.div`
-  padding: .2rem;
-`;
-export const DescriptionContainer = styled.div`
-  padding: .2rem;
-`;
-export const CategoriesContainer = styled.div`
-padding: .2rem;
-`;
-export const ScoreContainer = styled.div`
-padding: .2rem;
-`;
-export const AuthorsContainer = styled.div`
-padding: .2rem;
+export const RestInfo = styled.div`
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 `;
 
 export const InfoCategoriesAuthors = styled.div`
