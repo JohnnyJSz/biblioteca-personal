@@ -12,7 +12,6 @@ const CategoriesDetailView = (props) => {
   return (
     <Container>
       <h1>{categoryName}</h1>
-      <h4>iD: {categoryId}</h4>
       {categoryName ? <h3>Libros con la categoría {categoryName}</h3> : null}
       <div>
         {booksWithCategory.length ? (

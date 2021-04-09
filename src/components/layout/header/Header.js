@@ -8,17 +8,12 @@ import Nav from "../../nav/Nav";
 
 const Header = () => {
   const { isAuth } = useAuthContext();
-  console.log(isAuth);
-
   let classNameToApply;
   if (isAuth) {
     classNameToApply = 'iconAuth';
   } else {
     classNameToApply = 'iconNoAuth';
   };
-
-  console.log(classNameToApply);
-
   return (
     <StyledHeader>
       <NavLink className={`${classNameToApply}`} to={BOOKS} exact>
