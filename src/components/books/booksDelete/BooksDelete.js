@@ -23,13 +23,13 @@ const BooksDelete = () => {
     try {
       await apiClient.del(`${BackEndUrl}/books/${id}`);
     } catch (error) {
-      console.log(error);
+      null;
     }
     setIsDeleting(false);
     history.push(BOOKS);
   };
 
-  const goBackToBooks = () => {
+  const goBackToBook = () => {
     history.push(BOOKS);
   };
 
@@ -48,7 +48,7 @@ const BooksDelete = () => {
             <SmallCard onClick={DeleteBook} disabled={isDeleting}>
               Eliminar
             </SmallCard>
-            <SmallCard onClick={goBackToBooks}>Volver a los libros</SmallCard>
+            <SmallCard onClick={goBackToBook}>Volver al libro</SmallCard>
           </ControlsContainer>
         </SubContainer>
       </Container>

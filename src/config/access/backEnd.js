@@ -1,2 +1,2 @@
-export const BackEndUrl = process.env.REACT_APP_BACKEND_URL;
-export const API_TOKEN = process.env.REACT_APP_API_TOKEN;
+export const BackEndUrl = "http://18.130.120.189/api";
+export const API_TOKEN = "LIBRARIFY";
