@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from "react";
 import BookItem from "../bookItem";
@@ -7,9 +8,8 @@ import SmallCard from "../../UI/smallCard";
 import { Container, ControlsContainer } from "./styledComponents";
 
 const BooksDetailView = ({ isLoading, data: book }) => {
-  if (isLoading) {
-    return <h2>Cargando...</h2>;
-  } else {
+  console.log('---book: ',book);
+  if (!isLoading && book) {
     console.log("libro a editar : ", book);
     return (
       <Container>
@@ -37,6 +37,8 @@ const BooksDetailView = ({ isLoading, data: book }) => {
         </ControlsContainer>
       </Container>
     );
+  } else {
+    return <h2>Cargando...</h2>;
   }
 };
 

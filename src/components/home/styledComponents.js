@@ -70,7 +70,6 @@ export const Form = styled.form`
   }
 
   @media ${responsive.mobileM} {
-    border: 1px solid red;
     width: 30vmax;
     height: 12vh;
   }
