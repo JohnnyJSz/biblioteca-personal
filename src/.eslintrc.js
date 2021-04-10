@@ -14,8 +14,8 @@ module.exports = {
       experimentalObjectRestSpread: true,
     },
   },
-  plugins: ["react", "prettier", "react-hooks"],
-  extends: ["eslint:recommended", "prettier", "prettier/react"],
+  plugins: ["react", "react-hooks"],
+  extends: ["eslint:recommended"],
   root: true,
   rules: {
     semi: [2, "always", { omitLastInOneLineBlock: true }],
