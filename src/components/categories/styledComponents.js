@@ -11,7 +11,7 @@ export const SubContainer = styled.div`
   justify-content: space-evenly;
   align-items: center;
   margin: 1rem auto 0rem auto;
-  padding: 1rem;
+  padding: 1.1rem;
   width: 100%;
   max-width: 75vmax;
   background-color: #e2e2e2;
