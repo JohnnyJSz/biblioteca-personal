@@ -59,5 +59,6 @@ export default function useFetch(url, method, body) {
     },
     [url, method, body]
   );
+  
   return fetchState;
 }

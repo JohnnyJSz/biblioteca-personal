@@ -43,10 +43,6 @@ const BooksCreate = () => {
     title: Yup.string()
       .min(2, "Title too short, min 2 characters")
       .required("Title field is required"),
-    // description: Yup.string()
-    //   .min(10, "Description too short, min 20 characters")
-    //   .required("Description field is required"),
-    // score: Yup.number().required("Score field is required"),
     categories: Yup.array()
       .min(1, "Categories field is required")
       .required("Categories field is required")
@@ -87,7 +83,7 @@ const BooksCreate = () => {
     } catch (error) {
       console.log("***", error);
     }
-    alert("Libro CREADO");
+    console.log('Libro creado!');
     history.push(BOOKS);
   };
 

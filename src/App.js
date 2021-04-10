@@ -1,13 +1,22 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import AuthContextProvider from "./context/AuthContext";
-import { ThemeProvider } from "styled-components";
 
 import MainLayout from "./components/layout/mainLayout";
 
-import { themeDay } from './config/theme';
 
-import { HOME, LOGOUT, BOOKS, BOOKS_ID, BOOKS_CREATE, CATEGORIES, CATEGORIES_ID, BOOKS_ID_EDIT, BOOKS_ID_DELETE, CATEGORIES_ID_DELETE } from "./config/routes/Paths";
+import {
+  HOME,
+  LOGOUT,
+  BOOKS,
+  BOOKS_ID,
+  BOOKS_CREATE,
+  CATEGORIES,
+  CATEGORIES_ID,
+  BOOKS_ID_EDIT,
+  BOOKS_ID_DELETE,
+  CATEGORIES_ID_DELETE,
+} from "./config/routes/Paths";
 import PrivateRoute from "./components/route/PrivateRoute";
 import PublicRoute from "./components/route/PublicRoute";
 import Home from "./components/home";
@@ -24,27 +33,33 @@ import PageNotFound from "./components/pageNotFound";
 
 function App() {
   return (
-    <ThemeProvider theme={themeDay} >
-      <AuthContextProvider>
-        <BrowserRouter>
-          <MainLayout>
-            <Switch>
-              <PrivateRoute path={BOOKS} component={Books} exact/>
-              <PrivateRoute path={BOOKS_ID_EDIT} component={BookEdit} exact/>
-              <PrivateRoute path={BOOKS_ID_DELETE} component={BookDelete} exact/>
-              <PrivateRoute path={BOOKS_ID} component={BookDetail} exact/>
-              <PrivateRoute path={BOOKS_CREATE} component={BooksCreate} exact/>
-              <PrivateRoute path={CATEGORIES} component={Categories} exact/>
-              <PrivateRoute path={CATEGORIES_ID} component={CategoriesDetail} exact/>
-              <PrivateRoute path={CATEGORIES_ID_DELETE} component={CategoriesDelete} exact/>
-              <PrivateRoute path={LOGOUT} component={Logout} />
-              <PublicRoute path={HOME} component={Home} exact />
-              <Route component={PageNotFound} />
-            </Switch>
-          </MainLayout>
-        </BrowserRouter>
-      </AuthContextProvider>
-    </ThemeProvider>
+    <AuthContextProvider>
+      <BrowserRouter>
+        <MainLayout>
+          <Switch>
+            <PrivateRoute path={BOOKS} component={Books} exact />
+            <PrivateRoute path={BOOKS_ID_EDIT} component={BookEdit} exact />
+            <PrivateRoute path={BOOKS_ID_DELETE} component={BookDelete} exact />
+            <PrivateRoute path={BOOKS_ID} component={BookDetail} exact />
+            <PrivateRoute path={BOOKS_CREATE} component={BooksCreate} exact />
+            <PrivateRoute path={CATEGORIES} component={Categories} exact />
+            <PrivateRoute
+              path={CATEGORIES_ID}
+              component={CategoriesDetail}
+              exact
+            />
+            <PrivateRoute
+              path={CATEGORIES_ID_DELETE}
+              component={CategoriesDelete}
+              exact
+            />
+            <PrivateRoute path={LOGOUT} component={Logout} />
+            <PublicRoute path={HOME} component={Home} exact />
+            <Route component={PageNotFound} />
+          </Switch>
+        </MainLayout>
+      </BrowserRouter>
+    </AuthContextProvider>
   );
 }
 

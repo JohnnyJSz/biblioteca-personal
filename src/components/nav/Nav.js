@@ -1,14 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import { NavContainer as StyledNavContainer, Ul as StyledUl } from "./styledComponents";
+import { NavContainer, Ul } from "./styledComponents";
 
 import { BOOKS, BOOKS_CREATE, CATEGORIES, LOGOUT } from "../../config/routes/Paths";
 
 const Nav = () => {
   return (
-    <StyledNavContainer>
-      <StyledUl>
+    <NavContainer>
+      <Ul>
         <li>
           <NavLink activeClassName='active' to={BOOKS} exact>
             Libros
@@ -29,8 +29,8 @@ const Nav = () => {
             Cerrar Sesión
           </NavLink>
         </li>
-      </StyledUl>
-    </StyledNavContainer>
+      </Ul>
+    </NavContainer>
   );
 };
 
