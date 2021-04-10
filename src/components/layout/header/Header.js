@@ -13,7 +13,7 @@ const Header = () => {
     classNameToApply = 'iconAuth';
   } else {
     classNameToApply = 'iconNoAuth';
-  };
+  }
 
   return (
     <StyledHeader>

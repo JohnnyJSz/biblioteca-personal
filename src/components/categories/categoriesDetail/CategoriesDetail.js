@@ -13,7 +13,7 @@ const CategoriesDetail = (props) => {
   let categoryName;
   if (location?.state) {
     categoryName = location.state.categoryName;
-  };
+  }
 
   const { isLoading, isSuccess, data: books } = useFetch(
     `${BackEndUrl}/books`,
