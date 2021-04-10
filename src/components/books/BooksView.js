@@ -5,9 +5,7 @@ import PropTypes from "prop-types";
 import { Container } from './styledComponents';
 
 function BooksView({ isLoading, data: books }) {
-  if (isLoading) {
-    return <h2>Cargando...</h2>;
-  } else {
+  if (!isLoading && books) {
     return (
       <Container>
         <h1>Libros</h1>
@@ -43,6 +41,8 @@ function BooksView({ isLoading, data: books }) {
         })}
       </Container>
     );
+  } else {
+    return <h2>Cargando...</h2>;
   }
 }
 
