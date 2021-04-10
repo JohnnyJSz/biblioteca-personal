@@ -10,40 +10,58 @@ export const MainContainer = styled.div`
   justify-content: center;
   margin: auto;
   height: 100%;
-
   h1 {
-      font-size: 600%;
+    font-size: 600%;
   }
-
   @media ${responsive.tabletL} {
+    padding: 1rem;
     width: 48vmax;
   }
-
   @media ${responsive.tablet} {
+    padding: 1rem;
     width: 46vmax;
   }
-
   @media (max-width: 590px) {
+    padding: 1rem;
     width: 44vmax;
   }
-
   @media ${responsive.mobileL} {
+    padding: 0rem;
     width: 40vmax;
   }
-
   @media ${responsive.mobileM} {
-    width: 38vmax;
+    width: 35vmax;
+    padding: 0;
   }
 `;
 
 export const Form = styled.form`
-  
   width: 40vmax;
   height: 15vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  @media ${responsive.tabletL} {
+    width: 40vmax;
+    height: 15vh;
+  }
+  @media ${responsive.tablet} {
+    width: 40vmax;
+    height: 15vh;
+  }
+  @media (max-width: 590px) {
+    width: 40vmax;
+    height: 17vh;
+  }
+  @media ${responsive.mobileL} {
+    width: 40vmax;
+    height: 15vh;
+  }
+  @media ${responsive.mobileM} {
+    width: 30vmax;
+    height: 12vh;
+  }
 `;
 
 export const Input = styled.input`
@@ -66,5 +84,3 @@ export const Button = styled.button`
   height: 3rem;
   width: 20vmax;
 `;
-
-

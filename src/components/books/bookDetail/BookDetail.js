@@ -8,9 +8,15 @@ import BooksCreate from "../booksCreate";
 
 const BooksDetail = () => {
   const { id } = useParams();
+  let urlId;
+  if (id === 'create'){
+    urlId = '';
+  } else {
+    urlId = id;
+  }
   
   const { isLoading, isFailed, data } = useFetch(
-    `${BackEndUrl}/books/${id}`,
+    `${BackEndUrl}/books/${urlId}`,
     "GET"
   );
 

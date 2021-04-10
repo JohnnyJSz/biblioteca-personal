@@ -1,18 +1,18 @@
 import React from "react";
-import { useParams } from "react-router";
 import { BackEndUrl } from "../../../config/access/backEnd";
 import useFetch from "../../../hooks/useFetch";
 import CategoriesDetailView from "./CategoriesDetailView";
 
 const CategoriesDetail = (props) => {
+  const { match } = props;
+  const { params } = match;
+  const { id } = params;
   const { location } = props;
 
   let categoryName;
   if (location?.state) {
     categoryName = location.state.categoryName;
   } 
-  
-  const { id } = useParams();
 
   const { isLoading, isSuccess, data: books } = useFetch(
     `${BackEndUrl}/books`,

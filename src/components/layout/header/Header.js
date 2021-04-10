@@ -8,7 +8,6 @@ import Nav from "../../nav/Nav";
 
 const Header = () => {
   const { isAuth } = useAuthContext();
-  console.log(isAuth);
 
   let classNameToApply;
   if (isAuth) {
@@ -16,8 +15,6 @@ const Header = () => {
   } else {
     classNameToApply = 'iconNoAuth';
   };
-
-  console.log(classNameToApply);
 
   return (
     <StyledHeader>
