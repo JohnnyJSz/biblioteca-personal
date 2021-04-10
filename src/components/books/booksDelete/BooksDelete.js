@@ -48,7 +48,7 @@ const BooksDelete = () => {
             <SmallCard onClick={DeleteBook} disabled={isDeleting}>
               Eliminar
             </SmallCard>
-            <SmallCard onClick={goBackToBooks}>Volver al libro</SmallCard>
+            <SmallCard onClick={goBackToBooks}>Volver a los libros</SmallCard>
           </ControlsContainer>
         </SubContainer>
       </Container>

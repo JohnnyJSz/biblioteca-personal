@@ -8,11 +8,12 @@ const CategoriesDetail = (props) => {
   const { params } = match;
   const { id } = params;
   const { location } = props;
+  
 
   let categoryName;
   if (location?.state) {
     categoryName = location.state.categoryName;
-  } 
+  };
 
   const { isLoading, isSuccess, data: books } = useFetch(
     `${BackEndUrl}/books`,
