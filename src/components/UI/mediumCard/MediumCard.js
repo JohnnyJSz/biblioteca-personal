@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from "react";
 import { generatePath, Link } from "react-router-dom";
@@ -9,14 +8,17 @@ import {
   Container,
   ImageContainer,
   InfoContainer,
-  RestInfo,
+  TitleContainer,
+  DescriptionContainer,
+  CategoriesContainer,
+  ScoreContainer,
+  AuthorsContainer,
   InfoCategoriesAuthors,
 } from "./styledComponents";
 
 const MediumCard = (props) => {
   const {
     to,
-    id,
     title,
     image,
     categories,
@@ -32,12 +34,17 @@ const MediumCard = (props) => {
         </Link>
       </ImageContainer>
       <InfoContainer>
-        <Link to={to ? to : '/#'}>
-            <h1>{title}</h1>
-        </Link>
-        <RestInfo>
+        <TitleContainer>
+          <Link to={to ? to : '/#'}>
+              <h1>{title}</h1>
+          </Link>
+        </TitleContainer>
+        <DescriptionContainer>
+          <h3>Descripción</h3>
           <div>{description}</div>
-          <h3>Categoría/s</h3>
+        </DescriptionContainer>
+        <CategoriesContainer>
+        <h3>Categoría/s</h3>
           <InfoCategoriesAuthors>
             {categories?.length
               ? categories.map((category) => (
@@ -51,10 +58,12 @@ const MediumCard = (props) => {
                 ))
               : "No categories for the book have been added yet."}
           </InfoCategoriesAuthors>
-          <div>
-            {score ? <h3>Puntuación: {score}</h3> : <h3>Puntuación: n/a</h3>}
-          </div>
-          <h3>Autores</h3>
+        </CategoriesContainer>
+        <ScoreContainer>
+          {score ? <h3>Puntuación: {score}</h3> : <h3>Puntuación: n/a</h3>}
+        </ScoreContainer>
+        <AuthorsContainer>
+        <h3>Autores</h3>
           <InfoCategoriesAuthors>
             {authors?.length
               ? authors.map((author) => (
@@ -62,7 +71,7 @@ const MediumCard = (props) => {
                 ))
               : "No authors for the book have been added yet."}
           </InfoCategoriesAuthors>
-        </RestInfo>
+        </AuthorsContainer>
       </InfoContainer>
     </Container>
   );

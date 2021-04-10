@@ -5,7 +5,6 @@ export const NavContainer = styled.div`
   display: flex;
   justify-content: center;
   margin: 0 1.75rem 0 0;
-  
 
   @media ${responsive.tabletL} {
     margin: 0 1.5rem 0 0;
@@ -45,6 +44,7 @@ export const Ul = styled.ul`
   a {
     text-decoration: none;
     margin: 0 1.6rem;
+    color: #2F2F33;
   }
 
   .active {
