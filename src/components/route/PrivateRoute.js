@@ -1,8 +1,6 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
-
 import useAuthContext from '../../hooks/UseAuthContext';
-
 import { HOME } from "../../config/routes/Paths";
 
 const PrivateRoute = (props) => {

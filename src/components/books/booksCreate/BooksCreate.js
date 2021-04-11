@@ -81,8 +81,9 @@ const BooksCreate = () => {
       );
       console.log(response);
     } catch (error) {
-      console.log("***", error);
+      console.log("Error: ",error);
     }
+
     console.log('Libro creado!');
     history.push(BOOKS);
   };

@@ -24,8 +24,7 @@ const BooksDetailView = ({ isLoading, data: book }) => {
         <ControlsContainer>
           <SmallCard
             to={{
-              pathname: generatePath(BOOKS_ID_EDIT, { id: book.id }),
-              state: { bookToEdit: book },
+              pathname: generatePath(BOOKS_ID_EDIT, { id: book.id })
             }}
           >
             Editar

@@ -21,18 +21,18 @@ const post = async(url, body) => {
     headers: headers,
     body: body,
   });
-  const json = await response.json();
+  const json = await response.json(response);
   return json;
 };
 
-
-const del = async(url, body) => {
+const del = async(url) => {
   const response = await fetch(url, {
-    method: 'DELETE',
+    method: "DELETE",
     headers: headers,
-    body: body,
   });
-  const json = await response.json();
+  const string = await response.text();
+  // const json = await response.json(response);
+  const json = string === "" ? {} : JSON.parse(string);
   return json;
 };
 

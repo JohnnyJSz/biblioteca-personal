@@ -52,7 +52,6 @@ const MediumCard = (props) => {
                     key={category.id}
                     to={{
                       pathname: generatePath(CATEGORIES_ID, {id: category.id}),
-                      //state: { books: props },
                     }}
                   >{category.name}</SmallCard>
                 ))

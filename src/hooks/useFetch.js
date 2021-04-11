@@ -12,18 +12,19 @@ export default function useFetch(url, method, body) {
 
   useEffect(
     function() {
+      const abortCont = new AbortController();
       async function fetchData() {
         try {
           let result = null;
           switch (method) {
             case "GET":
-              result = await apiClient.get(url);
+              result = await apiClient.get(url, { signal: abortCont });
               break;
             case "POST":
-              result = await apiClient.post(url, body);
+              result = await apiClient.post(url, body, { signal: abortCont });
               break;
             case 'DELETE':
-              result = await apiClient.del(url, body);
+              result = await apiClient.del(url, { signal: abortCont });
               break;
             default:
               throw new Error("Método invalido");
@@ -46,16 +47,25 @@ export default function useFetch(url, method, body) {
             });
           }
         } catch (error) {
-          setFetchState({
-            isLoading: false,
-            isSuccess: false,
-            isFailed: true,
-            error,
-            data: null,
-          });
+          if (error.name === 'AbortError') {
+            console.log('Fetch aborted');
+          } else {
+            setFetchState({
+              isLoading: false,
+              isSuccess: false,
+              isFailed: true,
+              error,
+              data: null,
+            });
+          }
         }
       }
       fetchData();
+
+      return () => {
+        abortCont.abort();
+      };
+
     },
     [url, method, body]
   );

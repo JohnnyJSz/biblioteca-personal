@@ -1,58 +1,48 @@
-import React, { useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
-import useFetch from "../../../hooks/useFetch";
+import { useState } from "react";
+import { useParams, useHistory} from "react-router-dom";
 import { BackEndUrl } from "../../../config/access/backEnd";
-import apiClient from "../../../utils/apiClient";
 import { BOOKS } from "../../../config/routes/Paths";
+import apiClient from "../../../utils/apiClient";
+import PageNotFound from "../../pageNotFound/PageNotFound";
 import SmallCard from "../../UI/smallCard";
 
 import { Container, SubContainer, ControlsContainer } from "./styledComponents";
 
 const BooksDelete = () => {
+  const [isDeleting, setIsDeleting] = useState(false);
   const { id } = useParams();
   const history = useHistory();
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  const { isSuccess, data: book } = useFetch(
-    `${BackEndUrl}/books/${id}`,
-    "GET"
-  );
 
   const DeleteBook = async() => {
     setIsDeleting(true);
     try {
-      await apiClient.del(`${BackEndUrl}/books/${id}`);
+      const response = await apiClient.del(`${BackEndUrl}/books/${id}`);
+      console.log(response);
+      alert('Libro eliminado de la biblioteca');
+      history.push(BOOKS);
     } catch (error) {
-      console.log('Error :',error);
+      console.log("Error: ", error);
     }
-    setIsDeleting(false);
-    history.push(BOOKS);
   };
 
-  const goBackToBooks = () => {
-    history.push(BOOKS);
-  };
-
-  if (!isSuccess) {
-    return <h1>Loading...</h1>;
-  } else {
+  if (id) {
     return (
       <Container>
         <h1>Eliminar libro</h1>
         <SubContainer>
-          <p>
-            ¿Quieres eliminar de la biblioteca el libro{" "}
-            <strong>{book.title}</strong>?
-          </p>
+          <p>¿Quieres eliminar de la biblioteca el libro</p>
           <ControlsContainer>
             <SmallCard onClick={DeleteBook} disabled={isDeleting}>
               Eliminar
             </SmallCard>
-            <SmallCard onClick={goBackToBooks}>Volver a los libros</SmallCard>
           </ControlsContainer>
         </SubContainer>
       </Container>
     );
+  } else if (id === undefined) {
+    return <PageNotFound  message='Book undefined'/>;
+  } else {
+    return <h2>Loading...</h2>;
   }
 };
 

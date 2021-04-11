@@ -39,8 +39,7 @@ const CategoriesDetailView = (props) => {
         <ControlsContainer>
           <SmallCard
             to={{
-              pathname: generatePath(CATEGORIES_ID_DELETE, { id: categoryId }),
-              state: { categoryName: categoryName },
+              pathname: generatePath(CATEGORIES_ID_DELETE, { id: categoryId })
             }}
           >
             Eliminar la categoría {categoryName}

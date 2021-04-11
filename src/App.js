@@ -24,7 +24,7 @@ import Logout from "./components/logout";
 import Books from "./components/books";
 import BooksCreate from "./components/books/booksCreate";
 import BookEdit from "./components/books/booksEdit";
-import BookDelete from "./components/books/booksDelete";
+import BooksDelete from "./components/books/booksDelete";
 import BookDetail from "./components/books/bookDetail";
 import Categories from "./components/categories";
 import CategoriesDetail from "./components/categories/categoriesDetail";
@@ -39,7 +39,7 @@ function App() {
           <Switch>
             <PrivateRoute path={BOOKS} component={Books} exact />
             <PrivateRoute path={BOOKS_ID_EDIT} component={BookEdit} exact />
-            <PrivateRoute path={BOOKS_ID_DELETE} component={BookDelete} exact />
+            <PrivateRoute path={BOOKS_ID_DELETE} component={BooksDelete} exact />
             <PrivateRoute path={BOOKS_ID} component={BookDetail} exact />
             <PrivateRoute path={BOOKS_CREATE} component={BooksCreate} exact />
             <PrivateRoute path={CATEGORIES} component={Categories} exact />

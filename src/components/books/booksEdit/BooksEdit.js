@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import * as Yup from "yup";
 import blobToBase64 from "../../../utils/blobToBase64";
 import apiClient from "../../../utils/apiClient";
@@ -9,17 +7,21 @@ import { BackEndUrl } from "../../../config/access/backEnd";
 import { BOOKS } from "../../../config/routes/Paths";
 import BooksCreateEditForm from "../BooksCreateEditForm";
 
-import { Container } from './styledComponents';
+import { Container } from "./styledComponents";
 
-const BooksEdit = (props) => {
-  const { location } = props;
-  const { state } = location;
-  const { bookToEdit } = state;
-
-  const [formValues, setFormValues] = useState(bookToEdit);
-
+const BooksEdit = () => {
+  // TENGO QUE OBTENER LA INFO DEL LIBRO MEDIANTE EL useFetch
+  const { id } = useParams();
   const history = useHistory();
 
+  const { isSuccess: isSuccessBookFetched, data: bookFetched } = useFetch(
+    `${BackEndUrl}/books/${id}`,
+    "GET"
+  );
+  // console.log("**Libro a editar : ", bookFetched);
+  // ya tengo la info del libro a editar
+
+  // ahora consigo las categorias y los autores de la API
   const {
     isSuccess: isSuccessCategoriesFetched,
     data: categoriesFetched,
@@ -42,11 +44,6 @@ const BooksEdit = (props) => {
       .min(2, "Title too short, min 2 characters")
       .required("Title field is required")
       .nullable(),
-    // description: Yup.string()
-    //   .min(10, "Description too short, min 20 characters")
-    //   .required("Description field is required")
-    //   .nullable(),
-    // score: Yup.number().required("Score field is required"),
     categories: Yup.array()
       .min(1, "Categories field is required")
       .required("Categories field is required")
@@ -67,12 +64,12 @@ const BooksEdit = (props) => {
       reader.readAsDataURL(file);
       base64Image = await blobToBase64(file);
     } else {
-      file = '';
+      file = "";
       base64Image = file;
     }
 
     let score = parseInt(values.score);
-    
+
     try {
       const body = {
         title: values.title,
@@ -82,8 +79,8 @@ const BooksEdit = (props) => {
         base64Image: base64Image,
         authors: values.authors,
       };
-      const url = bookToEdit
-        ? `${BackEndUrl}/books/${bookToEdit.id}`
+      const url = bookFetched
+        ? `${BackEndUrl}/books/${bookFetched.id}`
         : `${BackEndUrl}/books`;
       const response = await apiClient.post(url, JSON.stringify(body));
       console.log(response);
@@ -94,12 +91,12 @@ const BooksEdit = (props) => {
     history.push(BOOKS);
   };
 
-  if (bookToEdit && isSuccessAuthorsFetched && isSuccessCategoriesFetched) {
+  if (isSuccessBookFetched && isSuccessAuthorsFetched && isSuccessCategoriesFetched) {
     return (
       <Container>
         <h1>Editar un libro</h1>
         <BooksCreateEditForm
-          initialValues={formValues}
+          initialValues={bookFetched}
           enableReinitialize
           validationSchema={validationSchema}
           onSubmit={onSubmit}
@@ -110,7 +107,7 @@ const BooksEdit = (props) => {
       </Container>
     );
   } else {
-    return <h2>Loading EDIT...</h2>;
+    return <h2>Loading...</h2>;
   }
 };
 
