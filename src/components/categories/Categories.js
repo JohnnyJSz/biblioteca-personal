@@ -9,19 +9,19 @@ import { CATEGORIES_ID } from "../../config/routes/Paths";
 
 const Categories = () => {
   const [categories, setCategories] = useState(null);
-  const { isLoading, isSuccess, error, data } = useFetch(
+  const { isFailed, error, data } = useFetch(
     `${BackEndUrl}/categories`,
     "GET"
   );
 
   useEffect(() => {
     setCategories(data);
-    return () => {
-      setCategories(null);
-    };
+    // return () => {
+    //   setCategories(null);
+    // };
   }, [data]);
 
-  if (!isLoading && isSuccess && categories) {
+  if (categories) {
     return (
       <Container>
         <h1>Categorías</h1>
@@ -41,9 +41,9 @@ const Categories = () => {
         </SubContainer>
       </Container>
     );
-  } else if (isLoading && !isSuccess) {
+  } else if (!categories) {
     return <h1>Loading...</h1>;
-  } else {
+  } else if (isFailed && error) {
     return (
       <div>
         <h2>Ha ocurrido un error inesperado. Intentalo más adelante 😢</h2>;

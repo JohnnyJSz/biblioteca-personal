@@ -5,20 +5,24 @@ import BooksView from "./BooksView";
 
 const Books = () => { 
   const [books, setBooks] = useState(null);
-  const {isLoading, isSuccess, error, data} = useFetch(`${BackEndUrl}/books`, 'GET');
+  const { isFailed, error, data} = useFetch(`${BackEndUrl}/books`, 'GET');
 
   useEffect(() => {
     setBooks(data);
-    return () => {
-      setBooks(null);
-    };
-  }, [data]);
+    // return () => {
+    //   setBooks(null);
+    //   console.log('* books state: ',books);
+    // };
+  }, [books, data]);
 
-  if (!isLoading && isSuccess && books) {
+  if (books) {
+    console.log('books state: ALL GOOD!',books);
     return <BooksView data={books}/>;
-  } else if (isLoading && !isSuccess){
+  } else if (!books){
+    console.log('books state: LOADING',books);
     return <h2>Loading...</h2>;
-  } else {
+  } else if (isFailed && error){
+    console.log('books state IF FAILED: ',books);
     return (
       <div>
         <h2>Ha ocurrido un error inesperado. Intentalo más adelante 😢</h2>;

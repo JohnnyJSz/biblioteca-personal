@@ -29,6 +29,7 @@ export default function useFetch(url, method, body) {
               throw new Error("Método invalido");
           }
           if (result !== "Book not found") {
+            // ha hecho fetch con exito
             setFetchState({
               isLoading: false,
               isSuccess: true,
@@ -37,6 +38,7 @@ export default function useFetch(url, method, body) {
               data: result,
             });
           } else {
+            // ha hecho fetch con SIN exito y el resultado es imprevisto
             setFetchState({
               isLoading: false,
               isSuccess: true,
