@@ -31,7 +31,6 @@ const del = async(url) => {
     headers: headers,
   });
   const string = await response.text();
-  // const json = await response.json(response);
   const json = string === "" ? {} : JSON.parse(string);
   return json;
 };

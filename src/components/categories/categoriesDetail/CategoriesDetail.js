@@ -7,26 +7,21 @@ import CategoriesDetailView from "./CategoriesDetailView";
 const CategoriesDetail = () => {
   const { id } = useParams();
   console.log('id',id);
-  // const { match } = props;
-  // const { params } = match;
-  // const { location } = props;
+  
 
   const {
-    // isLoading: isLoadingCategory,
     isFailed: isFailedCategory,
     isSuccess: isSuccessCategory,
     error: errorCategory,
     data: category,
   } = useFetch(`${BackEndUrl}/categories/${id}`, "GET");
   const {
-    // isLoading: isLoadingBooks,
     isFailed: isFailedBooks,
     isSuccess: isSuccessBooks,
     error: errorBooks,
     data: books,
   } = useFetch(`${BackEndUrl}/books`, "GET");
 
-  // let categoryName = category.name;
   let categoryName;
 
   if (isSuccessBooks && isSuccessCategory && category && books){
@@ -35,7 +30,6 @@ const CategoriesDetail = () => {
     for (const book of books) {
       book.categories.map((category) => {
         if (category.id.includes(id)) {
-          // categoryName = category.name;
           booksWithCategory.push(book);
         }
       });

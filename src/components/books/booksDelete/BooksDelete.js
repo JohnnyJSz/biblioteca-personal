@@ -18,7 +18,6 @@ const BooksDelete = () => {
     try {
       const response = await apiClient.del(`${BackEndUrl}/books/${id}`);
       console.log(response);
-      console.log('Libro eliminado de la biblioteca');
       history.push(BOOKS);
     } catch (error) {
       console.log("Error: ", error);

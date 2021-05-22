@@ -10,7 +10,6 @@ import BooksCreateEditForm from "../BooksCreateEditForm";
 import { Container } from "./styledComponents";
 
 const BooksEdit = () => {
-  // TENGO QUE OBTENER LA INFO DEL LIBRO MEDIANTE EL useFetch
   const { id } = useParams();
   const history = useHistory();
 
@@ -18,10 +17,6 @@ const BooksEdit = () => {
     `${BackEndUrl}/books/${id}`,
     "GET"
   );
-  // console.log("**Libro a editar : ", bookFetched);
-  // ya tengo la info del libro a editar
-
-  // ahora consigo las categorias y los autores de la API
   const {
     isSuccess: isSuccessCategoriesFetched,
     data: categoriesFetched,
@@ -55,8 +50,6 @@ const BooksEdit = () => {
   });
 
   const onSubmit = async(values) => {
-    console.log("Form data : ", values);
-
     let base64Image;
     let file = values.image;
     if (file instanceof Blob) {
@@ -87,11 +80,14 @@ const BooksEdit = () => {
     } catch (error) {
       console.log("***", error);
     }
-    console.log("*_*_*_LIBRO EDITADO_*_*_*");
     history.push(BOOKS);
   };
 
-  if (isSuccessBookFetched && isSuccessAuthorsFetched && isSuccessCategoriesFetched) {
+  if (
+    isSuccessBookFetched &&
+    isSuccessAuthorsFetched &&
+    isSuccessCategoriesFetched
+  ) {
     return (
       <Container>
         <h1>Editar un libro</h1>

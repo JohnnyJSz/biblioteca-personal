@@ -9,7 +9,6 @@ import { Container, ControlsContainer } from "./styledComponents";
 
 const BooksDetailView = ({ isLoading, data: book }) => {
   if (!isLoading && book) {
-    console.log("libro a editar : ", book);
     return (
       <Container>
         <BookItem

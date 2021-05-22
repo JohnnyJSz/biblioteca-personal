@@ -54,8 +54,6 @@ const BooksCreate = () => {
   });
 
   const onSubmit = async(values) => {
-    console.log("form data", values);
-
     let base64Image;
     if (values.image !== "") {
       let file = values.image;
@@ -83,8 +81,6 @@ const BooksCreate = () => {
     } catch (error) {
       console.log("Error: ",error);
     }
-
-    console.log('Libro creado!');
     history.push(BOOKS);
   };
 

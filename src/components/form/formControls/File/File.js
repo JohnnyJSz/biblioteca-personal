@@ -21,7 +21,6 @@ const File = (props) => {
       <MainLabel htmlFor={name}>{label}</MainLabel>
       <Field id={name} name={name} {...rest}>
         {({ form }) => {
-          //console.log('FIELD FILE value - ',field.value);
           return (
             <InputContainer>
               <Input
