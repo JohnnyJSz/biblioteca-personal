@@ -33,36 +33,36 @@ const FormContainer = (props) => {
             <MyForm>
               <FormControl
                 control='input'
-                label='Título del libro'
+                label='Book title'
                 name='title'
               />
               <FormControl
                 control='textarea'
-                label='Descripción del libro'
+                label='Book description'
                 name='description'
               />
               <FormControl
                 control='radio'
-                label='Puntuación del libro'
+                label='Book score'
                 name='score'
                 options={scoreOptions}
               />
               <FormControl
                 control='select'
-                label='Categoria del libro'
+                label='Book category'
                 name='categories'
                 options={categoriesFetched}
                 dataToEdit={formik.initialValues.categories}
               />
               <FormControl
                 control='file'
-                label='Imagen del libro'
+                label='Book cover'
                 name='image'
                 dataToEdit={formik.initialValues.image}
               />
               <FormControl
                 control='select'
-                label='Autor / Autores'
+                label='Author/s'
                 name='authors'
                 options={authorsFetched}
                 dataToEdit={formik.initialValues.authors}

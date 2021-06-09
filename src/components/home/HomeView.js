@@ -14,12 +14,12 @@ const HomeView = ({
       <h1>📚</h1>
       <Form onSubmit={handleSubmit}>
         <Input
-          placeholder='Palabra mágica'
           type='text'
           value={magicWord}
           onChange={handleInputChange}
+          placeholder='password = user'
         />
-        <Button type='submit'>Iniciar Sesión</Button>
+        <Button type='submit'>Log In</Button>
       </Form>
       <p>{loginMessage}</p>
     </MainContainer>

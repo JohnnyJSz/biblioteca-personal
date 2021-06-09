@@ -26,16 +26,16 @@ const BooksDetailView = ({ isLoading, data: book }) => {
               pathname: generatePath(BOOKS_ID_EDIT, { id: book.id })
             }}
           >
-            Editar
+            Edit
           </SmallCard>
           <SmallCard to={generatePath(BOOKS_ID_DELETE, { id: book.id })}>
-            Eliminar
+            Delete
           </SmallCard>
         </ControlsContainer>
       </Container>
     );
   } else {
-    return <h2>Cargando...</h2>;
+    return <h2>Loading...</h2>;
   }
 };
 

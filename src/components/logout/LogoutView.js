@@ -11,9 +11,9 @@ const LogoutView = () => {
 
   return (
     <Container>
-      <h1>Cerrar sesión</h1>
-      <h3>¿Quieres cerrar sesión?</h3>
-      <SmallCard onClick={handleClick}>Cerrar sesión</SmallCard>
+      <h1>Log out</h1>
+      <h3>Do you want to finish session?</h3>
+      <SmallCard onClick={handleClick}>Log out</SmallCard>
     </Container>
   );
 };

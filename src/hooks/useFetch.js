@@ -22,14 +22,13 @@ export default function useFetch(url, method, body) {
             case "POST":
               result = await apiClient.post(url, body);
               break;
-            case 'DELETE':
+            case "DELETE":
               result = await apiClient.del(url);
               break;
             default:
-              throw new Error("Método invalido");
+              throw new Error("Invalid Method");
           }
           if (result !== "Book not found") {
-            // ha hecho fetch con exito
             setFetchState({
               isLoading: false,
               isSuccess: true,
@@ -38,7 +37,6 @@ export default function useFetch(url, method, body) {
               data: result,
             });
           } else {
-            // ha hecho fetch con SIN exito y el resultado es imprevisto
             setFetchState({
               isLoading: false,
               isSuccess: true,
@@ -61,6 +59,6 @@ export default function useFetch(url, method, body) {
     },
     [url, method, body]
   );
-  
+
   return fetchState;
 }

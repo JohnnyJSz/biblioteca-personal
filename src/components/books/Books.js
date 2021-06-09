@@ -18,7 +18,7 @@ const Books = () => {
   } else if (isFailed && error) {
     return (
       <div>
-        <h2>Ha ocurrido un error inesperado. Intentalo más adelante 😢</h2>;
+        <h2>Something went wrong, try again later 😢</h2>;
         <p>{error}</p>
       </div>
     );

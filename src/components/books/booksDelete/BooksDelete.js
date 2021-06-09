@@ -27,12 +27,12 @@ const BooksDelete = () => {
   if (id) {
     return (
       <Container>
-        <h1>Eliminar libro</h1>
+        <h1>Delete a book</h1>
         <SubContainer>
-          <p>¿Quieres eliminar de la biblioteca el libro</p>
+          <p>Do you want to delete this book?</p>
           <ControlsContainer>
             <SmallCard onClick={DeleteBook} disabled={isDeleting}>
-              Eliminar
+              Delete
             </SmallCard>
           </ControlsContainer>
         </SubContainer>

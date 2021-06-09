@@ -6,7 +6,7 @@ import { Container } from "./styledComponents";
 function BooksView({ data: books }) {
   return (
     <Container>
-      <h1>Libros</h1>
+      <h1>Books</h1>
       {books.map((book) => {
         const {
           id,

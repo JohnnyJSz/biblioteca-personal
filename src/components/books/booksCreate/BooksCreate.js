@@ -87,7 +87,7 @@ const BooksCreate = () => {
   if (isSuccessCategoriesFetched && isSuccessAuthorsFetched) {
     return (
       <Container>
-        <h1>Añadir un libro</h1>
+        <h1>Add a book</h1>
         <BooksCreateEditForm
           initialValues={initialValues}
           validationSchema={validationSchema}

@@ -11,22 +11,22 @@ const Nav = () => {
       <Ul>
         <li>
           <NavLink activeClassName='active' to={BOOKS} exact>
-            Libros
+            Books
           </NavLink>
         </li>
         <li>
           <NavLink activeClassName='active' to={BOOKS_CREATE} exact>
-            Añadir libro
+            Add new book
           </NavLink>
         </li>
         <li>
           <NavLink activeClassName='active' to={CATEGORIES} exact>
-            Categorías
+            Categories
           </NavLink>
         </li>
         <li>
           <NavLink activeClassName='active' to={LOGOUT} exact>
-            Cerrar Sesión
+            Log out
           </NavLink>
         </li>
       </Ul>

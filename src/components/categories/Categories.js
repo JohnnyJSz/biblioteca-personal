@@ -21,7 +21,7 @@ const Categories = () => {
   if (categories) {
     return (
       <Container>
-        <h1>Categorías</h1>
+        <h1>Categories</h1>
         <SubContainer>
           {categories.map((category) => {
             return (
@@ -43,7 +43,7 @@ const Categories = () => {
   } else if (isFailed && error) {
     return (
       <div>
-        <h2>Ha ocurrido un error inesperado. Intentalo más adelante 😢</h2>;
+        <h2>Something went wrong, try again later 😢</h2>;
         <p>{error}</p>
       </div>
     );

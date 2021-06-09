@@ -40,11 +40,11 @@ const MediumCard = (props) => {
           </Link>
         </TitleContainer>
         <DescriptionContainer>
-          <h3>Descripción</h3>
+          <h3>Description</h3>
           <div>{description}</div>
         </DescriptionContainer>
         <CategoriesContainer>
-        <h3>Categoría/s</h3>
+        <h3>Categories</h3>
           <InfoCategoriesAuthors>
             {categories?.length
               ? categories.map((category) => (
@@ -59,10 +59,10 @@ const MediumCard = (props) => {
           </InfoCategoriesAuthors>
         </CategoriesContainer>
         <ScoreContainer>
-          {score ? <h3>Puntuación: {score}</h3> : <h3>Puntuación: n/a</h3>}
+          {score ? <h3>Score: {score}</h3> : <h3>Score: n/a</h3>}
         </ScoreContainer>
         <AuthorsContainer>
-        <h3>Autores</h3>
+        <h3>Authors</h3>
           <InfoCategoriesAuthors>
             {authors?.length
               ? authors.map((author) => (

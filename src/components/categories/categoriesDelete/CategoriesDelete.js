@@ -28,12 +28,12 @@ const CategoriesDelete = () => {
   if (id) {
     return (
       <Container>
-        <h1>Eliminar categoría</h1>
+        <h1>Delete Categories</h1>
         <SubContainer>
-          <p>¿Quieres eliminar de la biblioteca la categoría?</p>
+          <p>Do you want to delete this category?</p>
           <ControlsContainer>
             <SmallCard onClick={DeleteCategory} disabled={isDeleting}>
-              Eliminar
+              Delete
             </SmallCard>
           </ControlsContainer>
         </SubContainer>

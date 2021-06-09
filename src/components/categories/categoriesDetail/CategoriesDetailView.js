@@ -12,7 +12,7 @@ const CategoriesDetailView = (props) => {
   return (
     <Container>
       <h1>{categoryName}</h1>
-      {categoryName ? <h3>Libros con la categoría {categoryName}</h3> : null}
+      {categoryName ? <h3>All books with this category: {categoryName}</h3> : null}
       <div>
         {booksWithCategory.length ? (
           booksWithCategory.map((book) => {
@@ -32,7 +32,7 @@ const CategoriesDetailView = (props) => {
           })
         ) : (
           <p>
-            No hay libros para mostrar con esta categoría{" "}
+            There is no books to display with this category{" "}
             <strong>{categoryName}</strong>
           </p>
         )}
@@ -42,7 +42,7 @@ const CategoriesDetailView = (props) => {
               pathname: generatePath(CATEGORIES_ID_DELETE, { id: categoryId })
             }}
           >
-            Eliminar la categoría {categoryName}
+            Delete category: {categoryName}
           </SmallCard>
         </ControlsContainer>
       </div>

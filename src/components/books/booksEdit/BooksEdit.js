@@ -90,7 +90,7 @@ const BooksEdit = () => {
   ) {
     return (
       <Container>
-        <h1>Editar un libro</h1>
+        <h1>Edit a book</h1>
         <BooksCreateEditForm
           initialValues={bookFetched}
           enableReinitialize
